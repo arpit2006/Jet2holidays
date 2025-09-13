@@ -61,7 +61,11 @@ section {
 }
 
 
-
+/* .login{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+} */
 .btn {
   margin-top: 1rem;
   display: inline-block;
