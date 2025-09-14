@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Booking System</title>
+    <title>Jharkhand Tourism - Bookings</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font -->
@@ -40,7 +40,6 @@
             <p class="text-lg text-gray-600">
                 Easily manage your bookings with real-time updates.
             </p>
-            <div id="auth-status" class="text-sm text-gray-400 mt-2">Authenticating...</div>
         </header>
 
         <!-- Booking Form -->
@@ -91,7 +90,7 @@
             <h2 class="text-2xl font-bold text-stone-800 mb-4 tracking-tight">Upcoming Bookings</h2>
             <div id="booking-list" class="space-y-4">
                 <!-- Bookings will be rendered here dynamically -->
-                <div id="loading-spinner" class="text-center text-gray-500">Loading bookings...</div>
+                <p class="text-center text-gray-500 italic">No bookings yet. Add one above!</p>
             </div>
         </section>
 
@@ -115,38 +114,19 @@
 
     </div>
 
-    <!-- Firebase SDK Imports -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, doc, deleteDoc, onSnapshot, query, setLogLevel, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Firebase Configuration (provided by the environment)
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-
-        // Set log level for Firebase (helpful for debugging)
-        setLogLevel('debug');
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-
         const bookingForm = document.getElementById('booking-form');
         const bookingList = document.getElementById('booking-list');
         const messageBox = document.getElementById('message-box');
-        const authStatusEl = document.getElementById('auth-status');
-        const loadingSpinner = document.getElementById('loading-spinner');
         const addSamplesBtn = document.getElementById('add-samples-btn');
         const reminderModal = document.getElementById('reminder-modal');
         const reminderTextEl = document.getElementById('reminder-text');
         const closeModalBtn = document.getElementById('close-modal-btn');
         const copyBtn = document.getElementById('copy-btn');
 
-        let userId = null;
-        let isAuthReady = false;
+        // Local array to store bookings
+        let bookings = [];
+        let nextBookingId = 1;
 
         // Display a message to the user
         const showMessage = (message, type) => {
@@ -158,161 +138,44 @@
             }, 3000);
         };
 
-        // --- Firebase Authentication ---
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                userId = user.uid;
-                isAuthReady = true;
-                authStatusEl.textContent = `Authenticated. User ID: ${userId}`;
-                console.log("Firebase Auth State Changed: User is authenticated. UID:", userId);
-                // Start listening for bookings after authentication
-                listenForBookings();
-            } else {
-                userId = null;
-                isAuthReady = false;
-                authStatusEl.textContent = 'Signing in...';
-                console.log("Firebase Auth State Changed: User is not authenticated. Attempting to sign in.");
-                try {
-                    if (initialAuthToken) {
-                        await signInWithCustomToken(auth, initialAuthToken);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                } catch (error) {
-                    console.error("Authentication Error:", error);
-                    authStatusEl.textContent = `Authentication failed. Check the console for details.`;
-                    showMessage('Authentication failed. Please try again later.', 'error');
-                }
-            }
-        });
-
-        // --- Firestore Data Operations ---
-        const getBookingsCollection = (uid) => {
-            return collection(db, `artifacts/${appId}/users/${uid}/bookings`);
+        // --- Data Operations (local) ---
+        const addBooking = (bookingData) => {
+            const newBooking = {
+                id: `booking-${nextBookingId++}`,
+                ...bookingData,
+                status: 'Confirmed'
+            };
+            bookings.push(newBooking);
+            renderBookings();
+            showMessage('Booking successfully added!', 'success');
         };
 
-        // Real-time listener for bookings
-        const listenForBookings = () => {
-            if (!isAuthReady || !userId) {
-                console.warn("Attempted to listen for bookings before authentication was ready.");
-                return;
-            }
-
-            const bookingsCollection = getBookingsCollection(userId);
-            const q = query(bookingsCollection);
-
-            onSnapshot(q, (querySnapshot) => {
-                loadingSpinner.style.display = 'none'; // Hide spinner once data is received
-                const bookings = [];
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    bookings.push({
-                        id: doc.id,
-                        ...data,
-                        // Convert Firestore timestamp to JS Date for sorting
-                        timestamp: data.timestamp ? data.timestamp.toDate() : new Date(0)
-                    });
-                });
-                
-                if (bookings.length === 0) {
-                    bookingList.innerHTML = `<p class="text-center text-gray-500 italic">No bookings yet. Add one above!</p>`;
-                }
-
-                // Sort bookings by date and time
-                bookings.sort((a, b) => {
-                    if (a.date === b.date) {
-                        return a.time.localeCompare(b.time);
-                    }
-                    return a.date.localeCompare(b.date);
-                });
-
-                renderBookings(bookings);
-            }, (error) => {
-                console.error("Error fetching bookings:", error);
-                showMessage('Error loading bookings. Check the console for details.', 'error');
-            });
+        const deleteBooking = (id) => {
+            bookings = bookings.filter(b => b.id !== id);
+            renderBookings();
+            showMessage('Booking successfully deleted!', 'success');
         };
 
-        const addBooking = async (bookingData) => {
-            if (!isAuthReady || !userId) {
-                showMessage('Authentication not ready. Please wait.', 'error');
-                return;
-            }
-            try {
-                const bookingsCollection = getBookingsCollection(userId);
-                await addDoc(bookingsCollection, {
-                    ...bookingData,
-                    status: 'Confirmed', // New: Add a status field
-                    timestamp: new Date()
-                });
-                showMessage('Booking successfully added!', 'success');
-            } catch (e) {
-                console.error("Error adding document: ", e);
-                showMessage('Error adding booking. Please try again.', 'error');
-            }
-        };
-
-        const deleteBooking = async (id) => {
-            if (!isAuthReady || !userId) {
-                showMessage('Authentication not ready. Please wait.', 'error');
-                return;
-            }
-            try {
-                const docRef = doc(db, `artifacts/${appId}/users/${userId}/bookings`, id);
-                await deleteDoc(docRef);
-                showMessage('Booking successfully deleted!', 'success');
-            } catch (e) {
-                console.error("Error deleting document: ", e);
-                showMessage('Error deleting booking. Please try again.', 'error');
-            }
-        };
-
-        // New: Function to update a booking's status
-        const updateBookingStatus = async (id, newStatus) => {
-            if (!isAuthReady || !userId) {
-                showMessage('Authentication not ready. Please wait.', 'error');
-                return;
-            }
-            try {
-                const docRef = doc(db, `artifacts/${appId}/users/${userId}/bookings`, id);
-                await updateDoc(docRef, {
-                    status: newStatus
-                });
+        const updateBookingStatus = (id, newStatus) => {
+            const bookingToUpdate = bookings.find(b => b.id === id);
+            if (bookingToUpdate) {
+                bookingToUpdate.status = newStatus;
+                renderBookings();
                 showMessage(`Booking marked as ${newStatus}!`, 'success');
-            } catch (e) {
-                console.error("Error updating booking status:", e);
-                showMessage('Error updating booking status. Please try again.', 'error');
             }
         };
 
-        // --- Function to add sample bookings ---
-        const addSampleBookings = async () => {
-            if (!isAuthReady || !userId) {
-                showMessage('Authentication not ready. Please wait.', 'error');
-                return;
-            }
-
+        const addSampleBookings = () => {
             const sampleBookings = [
-                { name: 'Alice Smith', email: 'alice.s@example.com', date: '2025-10-20', time: '10:00', status: 'Confirmed' },
-                { name: 'Bob Johnson', email: 'b.johnson@example.com', date: '2025-10-21', time: '14:30', status: 'Confirmed' },
-                { name: 'Charlie Brown', email: 'c.brown@example.com', date: '2025-10-22', time: '09:00', status: 'Confirmed' },
+                { name: 'Alice Smith', email: 'alice.s@example.com', date: '2025-10-20', time: '10:00' },
+                { name: 'Bob Johnson', email: 'b.johnson@example.com', date: '2025-10-21', time: '14:30' },
+                { name: 'Charlie Brown', email: 'c.brown@example.com', date: '2025-10-22', time: '09:00' },
             ];
 
-            try {
-                const bookingsCollection = getBookingsCollection(userId);
-                for (const booking of sampleBookings) {
-                    await addDoc(bookingsCollection, {
-                        ...booking,
-                        timestamp: new Date()
-                    });
-                }
-                showMessage('Sample bookings added successfully!', 'success');
-            } catch (e) {
-                console.error("Error adding sample bookings: ", e);
-                showMessage('Failed to add sample bookings. Please try again.', 'error');
-            }
+            sampleBookings.forEach(booking => addBooking(booking));
+            showMessage('Sample bookings added successfully!', 'success');
         };
-        
+
         // --- Gemini API Function to draft a reminder ---
         const draftReminder = async (booking) => {
             const prompt = `Draft a professional and friendly reminder message for a booking. The booking details are:
@@ -361,14 +224,22 @@
         };
 
         // --- UI Rendering ---
-        const renderBookings = (bookings) => {
+        const renderBookings = () => {
+            // Sort bookings by date and time
+            const sortedBookings = [...bookings].sort((a, b) => {
+                if (a.date === b.date) {
+                    return a.time.localeCompare(b.time);
+                }
+                return a.date.localeCompare(b.date);
+            });
+
             bookingList.innerHTML = '';
-            if (bookings.length === 0) {
+            if (sortedBookings.length === 0) {
                 bookingList.innerHTML = `<p class="text-center text-gray-500 italic">No bookings yet. Add one above!</p>`;
                 return;
             }
 
-            bookings.forEach(booking => {
+            sortedBookings.forEach(booking => {
                 const bookingEl = document.createElement('div');
                 bookingEl.className = "bg-white p-4 rounded-xl border border-gray-100 shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center";
                 
@@ -446,7 +317,7 @@
 
             if (e.target.classList.contains('complete-btn')) {
                 const bookingId = e.target.getAttribute('data-id');
-                await updateBookingStatus(bookingId, 'Completed');
+                updateBookingStatus(bookingId, 'Completed');
             }
         });
 
@@ -469,6 +340,8 @@
         // Event listener for adding sample bookings
         addSamplesBtn.addEventListener('click', addSampleBookings);
         
+        // Initial render
+        renderBookings();
     </script>
 
 </body>
