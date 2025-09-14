@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- font awesome link  -->
+
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <!--header section start-->  
+    
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="#" class="logo"><span>Jhar</span>khand</a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="bookings.html">Stays</a>
+            <a href="map.html">Map</a>
+            <a href="travel.html">Travel</a>
+            <a href="#packages">Packages</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#review">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="icon">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"></i>
+        </div>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="Search here....">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+
+    </header>
+
+    <!--header section end--> 
+
+    <!-- login form container start -->
+
+    <div class="login-form-container">
+
+        <i class="fas fa-times" id="form-close"></i>
+
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="enter your email">
+            <input type="password" class="box" placeholder="enter your password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remember">
+            <label for="remember">remember me</label>
+            <p>forget password? <a href="#">click here</a></p>
+            <p>don't have and account? <a href="#">register now</a></p>
+        </form>
+
+    </div>
+    <!-- login form container end -->
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Explore the Land of Forests</h3>
+            <p>Discover the rich culture, stunning waterfalls, and diverse wildlife of Jharkhand.</p>
+            <a href="#" class="btn">discover more</a>
+        </div>
+
+        <div class="controls">
+            <span class="vid-btn active" data-src="images/vid-3.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-5.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-1.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-4.mp4"></span>
+            <span class="vid-btn" data-src="images/vid-2.mp4"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="images/vid-3.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+    </section>
+    
+    <!-- home section end -->
+
+    <!-- book section start -->
+
+    <section class="book" id="book">
+        <h1 class="heading">
+            <span>b</span>
+            <span>o</span>
+            <span>o</span>
+            <span>k</span>
+            <span class="space"></span>
+            <span>n</span>
+            <span>o</span>
+            <span>w</span>
+        </h1>
+        <div class="row">
+            <div class="image">
+                <img src="images/book-img.svg" alt="">
+            </div>
+            <form action="">
+                <div class="inputBox">
+                    <h3>where to</h3>
+                    <input type="text" placeholder="place name">
+                </div>
+                <div class="inputBox">
+                    <h3>how many</h3>
+                    <input type="number" placeholder="number of guests">
+                </div>
+                <div class="inputBox">
+                    <h3>arrivals</h3>
+                    <input type="date">
+                </div>
+                <div class="inputBox">
+                    <h3>leaving</h3>
+                    <input type="date">
+                </div>
+                <input type="submit" class="btn" value="book now">
+            </form>
+        </div>
+   </section>
+
+    <!-- book section end -->
+
+    <!-- package section start -->
+
+    <section class="packages" id="packages">
+        <h1 class="heading">
+            <span>P</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://placehold.co/600x400/27ae60/white?text=Betla+National+Park" alt="Betla National Park">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Betla National Park</h3>
+                    <p>Experience the wildlife and ancient forts of Betla. Home to tigers, elephants, and rich biodiversity.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">₹7500 <span>₹9000</span></div>
+                    <a href="#book" class="btn">book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/f39c12/white?text=Parasnath+Hills" alt="Parasnath Hills">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Parasnath Hills</h3>
+                    <p>A sacred pilgrimage site for Jains and the highest peak in the state, offering breathtaking views and serene trails.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price">₹5500 <span>₹6500</span></div>
+                    <a href="#book" class="btn">book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/3498db/white?text=Ranchi+Waterfalls" alt="Ranchi Waterfalls">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Ranchi Waterfalls</h3>
+                    <p>Explore the capital city's famous waterfalls including Hundru, Jonha, and Dassam Falls, perfect for nature lovers.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">₹4500 <span>₹5500</span></div>
+                    <a href="#book" class="btn">book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/e74c3c/white?text=Deoghar" alt="Deoghar">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Deoghar</h3>
+                    <p>Visit Baidyanath Dham, one of the twelve Jyotirlingas, a major pilgrimage destination for devotees.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price">₹6000 <span>₹7000</span></div>
+                    <a href="#book" class="btn">book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/9b59b6/white?text=Patratu+Valley" alt="Patratu Valley">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Patratu Valley</h3>
+                    <p>A scenic valley with a winding road, offering stunning views and a large reservoir for boating.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price">₹3500 <span>₹4500</span></div>
+                    <a href="#book" class="btn">book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/f39c12/white?text=Jamshedpur" alt="Jamshedpur">
+                <div class="content">
+                    <h3><i class="fas fa-map-marker-alt"></i> Jamshedpur</h3>
+                    <p>The industrial hub of Jharkhand, featuring beautiful parks, Dimna Lake, and a zoological park.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price">₹4800 <span>₹6000</span></div>
+                    <a href="#book" class="btn">book now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- package section end -->
+
+    <!-- services section start -->
+
+    <section class="services" id="services">
+        <h1 class="heading">
+            <span>S</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-hotel"></i>
+                <h3>Affordable Stays</h3>
+                <p>We partner with top hotels and homestays to ensure comfortable and budget-friendly accommodations throughout your trip.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-utensils"></i>
+                <h3>Local Food and Cuisine</h3>
+                <p>Savor the authentic flavors of Jharkhand with our curated food tours, featuring local delicacies like Dhuska, Mitha Pitha, and Rugra.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Expert Guides</h3>
+                <p>Our experienced local guides provide safety and rich insights into Jharkhand's tribal culture, history, and natural wonders.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe-asia"></i>
+                <h3>Curated Tours</h3>
+                <p>From the bustling city life of Ranchi to the serene beauty of Netarhat, we offer tours that cover all of Jharkhand's hidden gems.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-plane"></i>
+                <h3>Easy Travel</h3>
+                <p>Enjoy hassle-free travel with our organized transport services, including flight, train, and bus bookings, ensuring a smooth journey.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-hiking"></i>
+                <h3>Adventure Activities</h3>
+                <p>Get your adrenaline pumping with activities like trekking in Parasnath Hills, safaris in Betla, and waterfall rappelling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- services section end -->
+
+    <!-- gallery section start -->
+
+    <section class="gallery" id="gallery">
+        <h1 class="heading">
+            <span>G</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://placehold.co/600x400/2c3e50/white?text=Dassam+Falls" alt="Dassam Falls">
+                <div class="content">
+                    <h3>Dassam Falls</h3>
+                    <p>A breathtaking waterfall near Ranchi, where the Subarnarekha River cascades down from a great height.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/f39c12/white?text=Sohrai+Art" alt="Sohrai Art">
+                <div class="content">
+                    <h3>Sohrai Art</h3>
+                    <p>Explore the unique tribal art of Sohrai, a traditional painting style that celebrates harvest and nature.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/3498db/white?text=Tribal+Dance" alt="Tribal Dance">
+                <div class="content">
+                    <h3>Tribal Culture</h3>
+                    <p>Witness the vibrant and rhythmic tribal dances, a core part of Jharkhand's rich cultural heritage.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/27ae60/white?text=Netarhat" alt="Netarhat">
+                <div class="content">
+                    <h3>Netarhat</h3>
+                    <p>Visit the "Queen of Chotanagpur," a picturesque hill station known for its stunning sunrises and sunsets.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/9b59b6/white?text=Tribal+Crafts" alt="Tribal Crafts">
+                <div class="content">
+                    <h3>Local Handicrafts</h3>
+                    <p>Discover beautiful Dhokra art, a unique metal casting craft practiced by Jharkhand's tribal communities.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/e74c3c/white?text=Betla+Fort" alt="Betla Fort">
+                <div class="content">
+                    <h3>Betla Fort</h3>
+                    <p>Explore the remains of the ancient Chero Dynasty fort, located within the Betla National Park.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/16a085/white?text=Jonha+Falls" alt="Jonha Falls">
+                <div class="content">
+                    <h3>Jonha Falls</h3>
+                    <p>Also known as Gautamdhara, this hanging valley waterfall is a beautiful sight and a popular picnic spot.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/2c3e50/white?text=Maithon+Dam" alt="Maithon Dam">
+                <div class="content">
+                    <h3>Maithon Dam</h3>
+                    <p>A massive dam and a popular tourist spot with a scenic lake, perfect for boating and relaxation.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://placehold.co/600x400/f39c12/white?text=Local+Cuisine" alt="Local Cuisine">
+                <div class="content">
+                    <h3>Local Delicacies</h3>
+                    <p>Taste the traditional food of Jharkhand, a unique blend of flavors and ingredients.</p>
+                    <a href="#" class="btn">See More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- gallery section end -->
+    <!-- review section start -->
+
+    <section class="review" id="review">
+        <h1 class="heading">
+            <span>R</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+        <div class="swiper-container review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="https://placehold.co/600x400/27ae60/white?text=John+Doe" alt="John Doe">
+                        <h3>John Doe</h3>
+                        <p>“An incredible journey! Jharkhand’s raw beauty and rich cultural heritage are truly a hidden gem. The waterfalls and forests were breathtaking.”</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="https://placehold.co/600x400/27ae60/white?text=Jane+Smith" alt="Jane Smith">
+                        <h3>Jane Smith</h3>
+                        <p>“The local people are so welcoming, and the food was delicious! The adventure activities were well-organized and a lot of fun. Highly recommended.”</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="https://placehold.co/600x400/27ae60/white?text=Peter+Jones" alt="Peter Jones">
+                        <h3>Peter Jones</h3>
+                        <p>“Our guide was very knowledgeable, and the trip was seamless. We learned so much about the tribal culture and loved every moment of our trip.”</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="https://placehold.co/600x400/27ae60/white?text=Emily+Brown" alt="Emily Brown">
+                        <h3>Emily Brown</h3>
+                        <p>“The serene landscape and tranquil environment of Parasnath Hills were perfect for our spiritual retreat. A truly magical experience.”</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- review section end -->
+
+    <!-- contact section start -->
+
+    <section class="contact" id="contact">
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+        </h1>
+         <div class="row">
+             <div class="image">
+                 <img src="images/contact-img.svg" alt="">
+             </div>
+             <form action="">
+                 <div class="inputBox">
+                     <input type="text" placeholder="name">
+                     <input type="email" placeholder="email">
+                 </div>
+                 <div class="inputBox">
+                    <input type="number" placeholder="number">
+                    <input type="text" placeholder="subject">
+                </div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="message"></textarea>
+                <input type="submit" class="btn" value="send message">
+             </form>
+         </div>
+    </section>
+
+    <!-- contact section end -->
+
+    <!-- brand section start -->
+
+    <section class="brand-container">
+        <div class="swiper-container brand-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/5.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/6.jpg" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- brand section end -->
+
+    <!-- footer section start -->
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>about Jharkhand</h3>
+                <p>Known as the 'Land of Forests,' Jharkhand is a treasure trove of natural beauty, rich tribal culture, and ancient heritage. From serene waterfalls to sacred pilgrimage sites, it offers a unique blend of adventure and spirituality.</p>
+            </div>
+            <div class="box">
+                <h3>key locations</h3>
+                <a href="#"><i class="fas fa-location-arrow"></i>Ranchi</a>
+                <a href="#"><i class="fas fa-location-arrow"></i>Jamshedpur</a>
+                <a href="#"><i class="fas fa-location-arrow"></i>Deoghar</a>
+                <a href="#"><i class="fas fa-location-arrow"></i>Dhanbad</a>
+            </div>
+            <div class="box">
+                <h3>quick link</h3>
+                <a href="#home">home</a>
+                <a href="#book">book</a>
+                <a href="#packages">packages</a>
+                <a href="#services">services</a>
+                <a href="#gallery">gallery</a>
+                <a href="#review">review</a>
+                <a href="#contact">contact</a>
+            </div>
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i>instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i>twitter</a>
+                <a href="#"><i class="fab fa-linkedin-in"></i>linkedin</a>
+            </div>
+        </div>
+        <!-- <h1 class="credit">created by <span>Md.</span> | all rights reserved</h1> -->
+    </section>
+
+    <!-- footer section end -->
+
+
+
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- custom js link -->
+    <script src="js/script.js"></script>
+</body>
+</html>
