@@ -69,8 +69,71 @@
   </style>
   <link rel="stylesheet" href="css/chatbot.css">
   <style>
-    #credi a{
+    #credi a {
       color: white;
+    }
+  </style>
+  <style>
+    .newsletter form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .newsletter .content form {
+    margin-top: -4rem;
+    background: #fff;
+    border-radius:  1rem;
+    border: 0.2rem solid #10221b;
+    padding: 0.7rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+;
+}
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 422px;
+    margin: 22px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .newsletter label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .newsletter input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .newsletter button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .newsletter button:hover {
+      background-color: #0056b3;
     }
   </style>
 
@@ -670,7 +733,9 @@
 
               <div class="news__img">
                 <!-- <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1537132205/news-slider/item-5.webp" alt="news"> -->
-                <img src="images/rsih/Bamboo Craft/360-f-435531937-fzd9qo5pox0eelh1358ptc9rmwxjg9rm-bamboo-handicraft-manufacturers-1-t4jge-250.webp" alt="">
+                <img
+                  src="images/rsih/Bamboo Craft/360-f-435531937-fzd9qo5pox0eelh1358ptc9rmwxjg9rm-bamboo-handicraft-manufacturers-1-t4jge-250.webp"
+                  alt="">
               </div>
             </a>
           </div>
@@ -850,15 +915,24 @@
   <section class="newsletter">
 
     <div class="content">
+      <!-- <h1 class="heading">Subscribe now</h1> -->
       <h1 class="heading">Subscribe now</h1>
-      <p>Subscribe for our travel newsletter to receive exclusive deals, destination inspiration, and helpful tips for
-        your next vacation. Stay informed and get the most out of your travels by subscribing to our email list today.
-      </p>
-      <form action="">
-        <input type="email" name="" placeholder="enter your email" id="" class="email">
-        <input type="submit" value="subscirbe" class="btn">
-      </form>
-    </div>
+      <!-- <p>Subscribe for our travel newsletter to receive exclusive deals, destination inspiration, and helpful tips for -->
+        <!-- your next vacation. Stay informed and get the most out of your travels by subscribing to our email list today. -->
+      <!-- </p> -->
+      <!-- modify this form HTML and place wherever you want your form -->
+      <div class="content">
+        <p>...</p>
+        <div class="newsletter-form-container">
+          <form action="https://formspree.io/f/xkgvaryo" method="POST" class="newsletter-form">
+            <label for="email-input">
+              Your email:
+            </label>
+            <input type="email" name="email" id="email-input">
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
 
   </section>
 
