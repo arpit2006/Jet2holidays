@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jharkhand Tourism - Bookings</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7sLwXzJ8B+3gN6lW3yL7B0e3P4K8x6xV1u5C3Z3gM9aN1J5k9oQ2EwW4/x7x+gC2R+yT9q0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7sLwXzJ8B+3gN6lW3yL7B0e3P4K8x6xV1u5C3Z3gM9aN1J5k9oQ2EwW4/x7x+gC2R+yT9q0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -42,173 +43,181 @@
         .cta-button {
             transition: all 0.3s ease;
         }
+
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 115, 255, 0.4);
         }
+
+        .tab-btn.active {
+            position: relative;
+            z-index: 10;
+            color: white;
+            background-color: #0d9488;
+            /* A shade of teal for active tab */
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+        }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
 
+<body class="min-h-screen flex items-center justify-center p-4">
     <div class="booking-card rounded-3xl w-full max-w-5xl p-6 md:p-10 space-y-8">
-        <!-- Header -->
         <header class="text-center space-y-2 mb-8">
-            <h1 id="main-heading" class="text-4xl font-extrabold text-stone-800 tracking-tight flex items-center justify-center gap-2">
+            <h1 id="main-heading"
+                class="text-3xl sm:text-4xl font-extrabold text-stone-800 tracking-tight flex items-center justify-center gap-2">
                 <i id="main-icon" class="fas fa-bed text-teal-600"></i>
                 Book Your Hotel
             </h1>
-            <p class="text-lg text-gray-600">
-                Find the perfect stay for your trip.
+            <p class="text-sm sm:text-lg text-gray-600">
+                Find the perfect stay for your trip to Jharkhand.
             </p>
         </header>
-
-        <!-- Booking Tabs -->
-        <div class="flex space-x-4 mb-6">
-            <button data-type="hotels" class="tab-btn bg-teal-600 text-white font-semibold py-2 px-6 rounded-t-xl transition-colors">
+        <div class="flex space-x-2 sm:space-x-4 mb-6 -mx-4 sm:mx-0 overflow-x-auto">
+            <button data-type="hotels"
+                class="tab-btn active bg-teal-600 text-white font-semibold py-2 px-4 sm:px-6 rounded-t-xl transition-colors min-w-[120px]">
                 Hotels
             </button>
-            <button data-type="homestays" class="tab-btn text-gray-600 hover:text-teal-600 font-semibold py-2 px-6 rounded-t-xl transition-colors">
-                Homestays & Villas
+            <button data-type="homestays"
+                class="tab-btn text-gray-600 hover:text-teal-600 font-semibold py-2 px-4 sm:px-6 rounded-t-xl transition-colors min-w-[120px]">
+                Homestays
             </button>
-            <button data-type="travel" class="tab-btn text-gray-600 hover:text-teal-600 font-semibold py-2 px-6 rounded-t-xl transition-colors">
+            <button data-type="travel"
+                class="tab-btn text-gray-600 hover:text-teal-600 font-semibold py-2 px-4 sm:px-6 rounded-t-xl transition-colors min-w-[120px]">
                 Travel
             </button>
         </div>
-
-        <!-- Forms Container -->
-        <div class="bg-gray-50 rounded-2xl p-6 space-y-6">
+        <div class="bg-gray-50 rounded-2xl p-4 sm:p-6 space-y-6">
             <form id="hotels-form" class="booking-form space-y-4" data-type="hotels">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                     <div class="relative md:col-span-2">
                         <label for="destination" class="block text-sm font-medium text-gray-500">Destination</label>
-                        <input type="text" id="destination" name="destination" placeholder="City, hotel, or landmark" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="text" id="destination" name="destination" placeholder="City, hotel, or landmark"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-map-marker-alt text-gray-400"></i>
                         </div>
                     </div>
-
                     <div class="relative md:col-span-2">
                         <label for="hotelName" class="block text-sm font-medium text-gray-500">Hotel Name</label>
-                        <input type="text" id="hotelName" name="hotelName" placeholder="Name of the hotel" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="text" id="hotelName" name="hotelName" placeholder="Name of the hotel"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-                    
                     <div class="relative">
                         <label for="checkinDate" class="block text-sm font-medium text-gray-500">Check-in</label>
-                        <input type="date" id="checkinDate" name="checkinDate" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="date" id="checkinDate" name="checkinDate"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-
                     <div class="relative">
                         <label for="checkoutDate" class="block text-sm font-medium text-gray-500">Check-out</label>
-                        <input type="date" id="checkoutDate" name="checkoutDate" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="date" id="checkoutDate" name="checkoutDate"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-
                     <div class="relative md:col-span-2">
                         <label for="guests" class="block text-sm font-medium text-gray-500">Guests & Rooms</label>
-                        <input type="text" id="guests" name="guests" value="1 Room, 1 Guest" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="text" id="guests" name="guests" value="1 Room, 1 Guest"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-user-plus text-gray-400"></i>
                         </div>
                     </div>
                 </div>
             </form>
-            
             <form id="homestays-form" class="booking-form space-y-4 hidden" data-type="homestays">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                     <div class="relative md:col-span-2">
-                        <label for="villaDestination" class="block text-sm font-medium text-gray-500">Destination</label>
-                        <input type="text" id="villaDestination" name="villaDestination" placeholder="City, villa, or landmark" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <label for="villaDestination"
+                            class="block text-sm font-medium text-gray-500">Destination</label>
+                        <input type="text" id="villaDestination" name="villaDestination"
+                            placeholder="City, villa, or landmark"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-map-marker-alt text-gray-400"></i>
                         </div>
                     </div>
-
                     <div class="relative md:col-span-2">
-                        <label for="villaName" class="block text-sm font-medium text-gray-500">Homestay/Villa Name</label>
-                        <input type="text" id="villaName" name="villaName" placeholder="Name of the homestay/villa" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <label for="villaName" class="block text-sm font-medium text-gray-500">Homestay/Villa
+                            Name</label>
+                        <input type="text" id="villaName" name="villaName" placeholder="Name of the homestay/villa"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-                    
                     <div class="relative">
                         <label for="villaCheckinDate" class="block text-sm font-medium text-gray-500">Check-in</label>
-                        <input type="date" id="villaCheckinDate" name="villaCheckinDate" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="date" id="villaCheckinDate" name="villaCheckinDate"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-
                     <div class="relative">
                         <label for="villaCheckoutDate" class="block text-sm font-medium text-gray-500">Check-out</label>
-                        <input type="date" id="villaCheckoutDate" name="villaCheckoutDate" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="date" id="villaCheckoutDate" name="villaCheckoutDate"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-
                     <div class="relative md:col-span-2">
                         <label for="villaGuests" class="block text-sm font-medium text-gray-500">Guests</label>
-                        <input type="text" id="villaGuests" name="villaGuests" value="1 Guest" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="text" id="villaGuests" name="villaGuests" value="1 Guest"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-user-plus text-gray-400"></i>
                         </div>
                     </div>
                 </div>
             </form>
-
             <form id="travel-form" class="booking-form space-y-4 hidden" data-type="travel">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                     <div class="relative md:col-span-2">
                         <label for="tourName" class="block text-sm font-medium text-gray-500">Tour/Activity</label>
-                        <input type="text" id="tourName" name="tourName" placeholder="e.g., Waterfall Hike" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="text" id="tourName" name="tourName" placeholder="e.g., Waterfall Hike"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-mountain text-gray-400"></i>
                         </div>
                     </div>
-
                     <div class="relative md:col-span-2">
                         <label for="tourDestination" class="block text-sm font-medium text-gray-500">Location</label>
-                        <input type="text" id="tourDestination" name="tourDestination" placeholder="City or landmark" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="text" id="tourDestination" name="tourDestination" placeholder="City or landmark"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-map-marker-alt text-gray-400"></i>
                         </div>
                     </div>
-                    
                     <div class="relative">
                         <label for="tourDate" class="block text-sm font-medium text-gray-500">Date</label>
-                        <input type="date" id="tourDate" name="tourDate" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="date" id="tourDate" name="tourDate"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-
                     <div class="relative">
                         <label for="tourTime" class="block text-sm font-medium text-gray-500">Time</label>
-                        <input type="time" id="tourTime" name="tourTime" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="time" id="tourTime" name="tourTime"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                     </div>
-
                     <div class="relative md:col-span-2">
                         <label for="tourGuests" class="block text-sm font-medium text-gray-500">Number of People</label>
-                        <input type="number" id="tourGuests" name="tourGuests" value="1" min="1" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                        <input type="number" id="tourGuests" name="tourGuests" value="1" min="1"
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                             <i class="fas fa-users text-gray-400"></i>
                         </div>
                     </div>
                 </div>
             </form>
-
             <div id="message-box" class="hidden p-4 rounded-xl text-center font-medium transition duration-300"></div>
         </div>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
             <button id="book-now-btn"
-                    class="cta-button py-4 px-12 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full text-xl shadow-md">
+                class="cta-button py-3 sm:py-4 px-8 sm:px-12 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full text-base sm:text-xl shadow-md">
                 Book Now
             </button>
             <button id="add-samples-btn"
-                    class="cta-button py-4 px-12 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded-full text-xl shadow-md">
+                class="cta-button py-3 sm:py-4 px-8 sm:px-12 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded-full text-base sm:text-xl shadow-md">
                 Add Sample Bookings
             </button>
         </div>
-
-        <!-- Bookings Display Section -->
-        <section>
-            <h2 class="text-2xl font-bold text-stone-800 mb-4 tracking-tight">Your Bookings</h2>
+        <section class="mt-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-stone-800 mb-4 tracking-tight">Your Bookings</h2>
             <div id="booking-list" class="space-y-4">
                 <p class="text-center text-gray-500 italic">No bookings yet. Add one above!</p>
             </div>
         </section>
     </div>
-
     <script>
         const tabButtons = document.querySelectorAll('.tab-btn');
         const bookingForms = document.querySelectorAll('.booking-form');
@@ -218,10 +227,8 @@
         const messageBox = document.getElementById('message-box');
         const mainHeading = document.getElementById('main-heading');
         const mainIcon = document.getElementById('main-icon');
-
         let bookings = [];
         let nextBookingId = 1;
-
         const showMessage = (message, type) => {
             messageBox.textContent = message;
             messageBox.className = `p-4 rounded-xl text-center font-medium transition duration-300 transform scale-100 ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'} mt-4`;
@@ -230,7 +237,6 @@
                 messageBox.style.display = 'none';
             }, 3000);
         };
-
         const renderBookings = () => {
             bookingList.innerHTML = '';
             if (bookings.length === 0) {
@@ -241,7 +247,7 @@
             bookings.forEach(booking => {
                 const bookingEl = document.createElement('div');
                 bookingEl.className = "bg-white p-6 rounded-2xl border border-gray-100 shadow-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 transition-transform hover:scale-[1.01] duration-200";
-                
+
                 let iconHtml = '';
                 if (booking.type === 'hotels') {
                     iconHtml = `<i class="fas fa-bed text-5xl text-teal-600"></i>`;
@@ -252,41 +258,41 @@
                 }
 
                 const statusColor = 'bg-emerald-500';
-                
+
                 let bookingContent = '';
                 if (booking.type === 'hotels') {
                     bookingContent = `
                         <div class="flex-grow space-y-1">
-                            <h3 class="text-2xl font-bold text-gray-800">${booking.hotelName}</h3>
-                            <p class="text-gray-600">Destination: <span class="font-medium text-gray-800">${booking.destination}</span></p>
-                            <p class="text-gray-500">Dates: <span class="font-medium text-gray-700">${booking.checkinDate} - ${booking.checkoutDate}</span></p>
+                            <h3 class="text-lg sm:text-2xl font-bold text-gray-800">${booking.hotelName}</h3>
+                            <p class="text-sm text-gray-600">Destination: <span class="font-medium text-gray-800">${booking.destination}</span></p>
+                            <p class="text-sm text-gray-500">Dates: <span class="font-medium text-gray-700">${booking.checkinDate} - ${booking.checkoutDate}</span></p>
                         </div>
                     `;
                 } else if (booking.type === 'homestays') {
                     bookingContent = `
                         <div class="flex-grow space-y-1">
-                            <h3 class="text-2xl font-bold text-gray-800">${booking.villaName}</h3>
-                            <p class="text-gray-600">Destination: <span class="font-medium text-gray-800">${booking.villaDestination}</span></p>
-                            <p class="text-gray-500">Dates: <span class="font-medium text-gray-700">${booking.villaCheckinDate} - ${booking.villaCheckoutDate}</span></p>
+                            <h3 class="text-lg sm:text-2xl font-bold text-gray-800">${booking.villaName}</h3>
+                            <p class="text-sm text-gray-600">Destination: <span class="font-medium text-gray-800">${booking.villaDestination}</span></p>
+                            <p class="text-sm text-gray-500">Dates: <span class="font-medium text-gray-700">${booking.villaCheckinDate} - ${booking.villaCheckoutDate}</span></p>
                         </div>
                     `;
                 } else if (booking.type === 'travel') {
                     bookingContent = `
                         <div class="flex-grow space-y-1">
-                            <h3 class="text-2xl font-bold text-gray-800">${booking.tourName}</h3>
-                            <p class="text-gray-600">Destination: <span class="font-medium text-gray-800">${booking.tourDestination}</span></p>
-                            <p class="text-gray-500">Date & Time: <span class="font-medium text-gray-700">${booking.tourDate} at ${booking.tourTime}</span></p>
+                            <h3 class="text-lg sm:text-2xl font-bold text-gray-800">${booking.tourName}</h3>
+                            <p class="text-sm text-gray-600">Destination: <span class="font-medium text-gray-800">${booking.tourDestination}</span></p>
+                            <p class="text-sm text-gray-500">Date & Time: <span class="font-medium text-gray-700">${booking.tourDate} at ${booking.tourTime}</span></p>
                         </div>
                     `;
                 }
-                
+
                 bookingEl.innerHTML = `
-                    <div class="flex-shrink-0">
+                    <div class="flex-shrink-0 hidden sm:block">
                         ${iconHtml}
                     </div>
                     ${bookingContent}
-                    <div class="flex-shrink-0 flex items-center space-x-4">
-                        <span class="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold text-white ${statusColor} shadow-sm">
+                    <div class="flex-shrink-0 flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 ml-auto">
+                        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs sm:text-sm font-semibold text-white ${statusColor} shadow-sm">
                             ${booking.status}
                         </span>
                         <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full text-sm transition duration-200 shadow-md">
@@ -302,10 +308,10 @@
             // Update active button
             tabButtons.forEach(btn => {
                 if (btn.dataset.type === type) {
-                    btn.classList.add('bg-teal-600', 'text-white');
+                    btn.classList.add('bg-teal-600', 'text-white', 'active');
                     btn.classList.remove('text-gray-600', 'hover:text-teal-600');
                 } else {
-                    btn.classList.remove('bg-teal-600', 'text-white');
+                    btn.classList.remove('bg-teal-600', 'text-white', 'active');
                     btn.classList.add('text-gray-600', 'hover:text-teal-600');
                 }
             });
@@ -327,10 +333,10 @@
                 headingText = 'Book Your Hotel';
             } else if (type === 'homestays') {
                 iconClass = 'fas fa-house-chimney-window';
-                headingText = 'Book a Homestay or Villa';
+                headingText = 'Book a Homestay';
             } else if (type === 'travel') {
                 iconClass = 'fas fa-mountain';
-                headingText = 'Book a Tour or Activity';
+                headingText = 'Book a Tour';
             }
 
             mainIcon.className = `${iconClass} text-teal-600`;
@@ -382,7 +388,7 @@
 
         bookNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             let newBooking = {};
             let isFormValid = true;
             const currentForm = document.querySelector('.booking-form:not(.hidden)');
@@ -436,7 +442,7 @@
                 showMessage("Please fill in all the details.", "error");
                 return;
             }
-            
+
             bookings.push(newBooking);
             renderBookings();
             showMessage('Booking successfully added!', 'success');
@@ -449,5 +455,5 @@
         renderBookings();
     </script>
 </body>
+
 </html>
-c:\Users\user\Downloads\images\jharkhand_exploration_map.html
