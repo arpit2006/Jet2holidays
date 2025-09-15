@@ -2,26 +2,29 @@
 <html lang="en">
 
 <head>
-       
     <meta charset="UTF-8">
-       
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jharkhand Tourism Chatbot</title>
-       
+    <title>Jharkhand Tourism Chatbot</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-        <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
         :root {
-            --primary-green: #388e3c;
-            /* Darker green for accents */
-            --light-green: #e8f5e9;
-            /* Lighter green for backgrounds */
-            --text-color: #333;
-            --border-color: #a5d6a7;
-            /* Greenish border */
-            --user-bubble: #c8e6c9;
-            /* Light green for user messages */
-            --bot-bubble: #f1f8e9;
-            /* Off-white/very light green for bot messages */
+            /* A more refined, nature-inspired palette */
+            --primary-green: #104e01;
+            /* Deep forest green */
+            --secondary-green: #388e3c;
+            /* A more vibrant green for accents */
+            --light-bg-color: #f7f9f2;
+            /* A very light, off-white background */
+            --text-color: #212121;
+            /* Dark gray for text */
+            --border-color: #b3c2a5;
+            /* Soft green border */
+            --user-bubble: #b4d3a0;
+            /* A soft, calming green for user messages */
+            --bot-bubble: #e0e9d6;
+            /* A very light, natural green for bot messages */
             --shadow-color: rgba(0, 0, 0, 0.15);
             --font-family: 'Poppins', sans-serif;
         }
@@ -32,19 +35,16 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Use min-height to allow content to grow */
-            background: linear-gradient(to bottom right, #f0f2f5, var(--light-green));
-            /* Greenish gradient background */
+            background: var(--light-bg-color);
             margin: 0;
             color: var(--text-color);
+            padding: 20px;
         }
 
         #chat-container {
-            width: 90%;
+            width: 100%;
             max-width: 450px;
-            /* Slightly wider for better readability */
-            height: 80vh;
-            /* Responsive height */
+            height: 90vh;
             min-height: 450px;
             max-height: 700px;
             border: 1px solid var(--border-color);
@@ -53,56 +53,64 @@
             flex-direction: column;
             background-color: white;
             box-shadow: 0 8px 20px var(--shadow-color);
-            /* More pronounced shadow */
             overflow: hidden;
+            position: relative;
         }
 
         #chat-header {
-            background-color: var(--primary-green);
+            background-color: var(--secondary-green);
             color: white;
             padding: 15px;
             font-size: 1.2em;
             font-weight: 600;
             text-align: center;
-            border-bottom: 1px solid var(--primary-green);
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-between;
         }
 
-        #chat-header img {
-            height: 24px;
-            /* Adjust size of icon */
-            filter: invert(1);
-            /* Makes the icon white */
+        #chat-header .title {
+            flex-grow: 1;
+            text-align: center;
+            padding-left: 30px;
+            /* Space for the close button */
+        }
+
+        #chat-header .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        #chat-header .close-btn:hover {
+            color: #ffcccc;
         }
 
         #chat-box {
             flex-grow: 1;
             padding: 15px;
             overflow-y: auto;
-            border-bottom: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            /* For aligning messages */
             gap: 10px;
-            /* Space between messages */
+            background-color: var(--light-bg-color);
         }
 
         #input-area {
             display: flex;
             padding: 15px;
-            background-color: #f8fcf8;
-            /* Very light green for input area */
+            background-color: #ffffff;
             border-top: 1px solid var(--border-color);
+            align-items: center;
         }
 
         #user-input {
             flex-grow: 1;
             border: 1px solid var(--border-color);
             border-radius: 25px;
-            /* Rounded input field */
             padding: 10px 15px;
             margin-right: 10px;
             font-size: 1em;
@@ -110,7 +118,7 @@
         }
 
         #user-input:focus {
-            border-color: var(--primary-green);
+            border-color: var(--secondary-green);
             outline: none;
             box-shadow: 0 0 0 2px rgba(56, 142, 60, 0.2);
         }
@@ -118,10 +126,9 @@
         #send-btn {
             padding: 10px 20px;
             border: none;
-            background-color: var(--primary-green);
+            background-color: var(--secondary-green);
             color: white;
             border-radius: 25px;
-            /* Rounded button */
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
@@ -129,8 +136,7 @@
         }
 
         #send-btn:hover {
-            background-color: #2e7d32;
-            /* Slightly darker green on hover */
+            background-color: var(--primary-green);
             transform: translateY(-1px);
         }
 
@@ -139,30 +145,24 @@
         }
 
         .message {
-            margin-bottom: 5px;
-            /* Slightly less margin, compensated by gap */
             padding: 12px 15px;
             border-radius: 20px;
-            /* More rounded message bubbles */
             max-width: 85%;
             word-wrap: break-word;
-            /* Ensure long words break */
+            line-height: 1.4;
+            font-size: 0.9em;
         }
 
         .user-message {
             background-color: var(--user-bubble);
             align-self: flex-end;
-            /* Align to the right */
             border-bottom-right-radius: 5px;
-            /* Slight flat edge on the corner */
         }
 
         .bot-message {
             background-color: var(--bot-bubble);
             align-self: flex-start;
-            /* Align to the left */
             border-bottom-left-radius: 5px;
-            /* Slight flat edge on the corner */
         }
 
         .thinking-message {
@@ -187,6 +187,10 @@
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+
             #chat-container {
                 width: 100%;
                 height: 100vh;
@@ -195,61 +199,56 @@
                 border-radius: 0;
                 box-shadow: none;
             }
-
-            body {
-                padding: 0;
-            }
-        }
-        .chat-header{
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
+    <div id="chat-container">
+        <div id="chat-header">
+            <span class="title">Jharkhand Tourism Assistant</span>
+            <button id="close-chat-btn" class="close-btn">&times;</button>
+        </div>
+        <div id="chat-box"></div>
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="Ask about attractions, culture, food...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
 
-        <div id="chat-container">
-                <div id="chat-header">
-            <!--             <img
-                src="images/logo.png"  
-                              alt="Jharkhand Icon"> -->
-                        Jharkhand Tourism Assistant
-                    </div>
-                <div id="chat-box"></div>
-                <div id="input-area">
-                        <input type="text" id="user-input" placeholder="Ask about attractions, culture, food...">
-                        <button id="send-btn">Send</button>
-                    </div>
-            </div>
-
-       
     <script>
+        const chatContainer = document.getElementById('chat-container');
+        const closeChatBtn = document.getElementById('close-chat-btn');
         const chatBox = document.getElementById('chat-box');
         const userInput = document.getElementById('user-input');
         const sendBtn = document.getElementById('send-btn');
 
-        // IMPORTANT: Ensure this URL points to your deployed Hugging Face API
+        // IMPORTANT: This script should be run in a floating iframe on the homepage, 
+        // so the event to close the window will be handled by the parent page.
+        // We add a listener here for the close button to inform the parent.
+        closeChatBtn.addEventListener('click', () => {
+            // This sends a message to the parent document to close the iframe
+            window.parent.postMessage('closeChatbot', '*');
+        });
+
         const BACKEND_URL = 'https://sagitquark-jharkhand-tourism-chatbot.hf.space/chat';
 
-        // Function to add a message to the chat display
         function addMessage(text, sender, isThinking = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}-message ${isThinking ? 'thinking-message' : ''}`;
             messageDiv.textContent = text;
             chatBox.appendChild(messageDiv);
-            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            chatBox.scrollTop = chatBox.scrollHeight;
         }
 
-        // Function to handle sending the message
         async function sendMessage() {
             const query = userInput.value.trim();
             if (query === '') return;
 
             addMessage(query, 'user');
-            userInput.value = ''; // Clear input field
+            userInput.value = '';
 
-            const thinkingMessageId = 'thinking-message-' + Date.now(); // Unique ID for thinking message
-            addMessage('Thinking...', 'bot', true); // Show thinking message
+            addMessage('Thinking...', 'bot', true);
 
             try {
                 const response = await fetch(BACKEND_URL, {
@@ -264,17 +263,13 @@
 
                 const data = await response.json();
 
-                // Remove the last bot message (which was "Thinking...")
                 if (chatBox.lastChild && chatBox.lastChild.classList.contains('thinking-message')) {
                     chatBox.removeChild(chatBox.lastChild);
                 }
 
-                // Display the final answer
                 addMessage(data.answer, 'bot');
-
             } catch (error) {
                 console.error('Error:', error);
-                // Remove the "thinking..." message if it's still there
                 if (chatBox.lastChild && chatBox.lastChild.classList.contains('thinking-message')) {
                     chatBox.removeChild(chatBox.lastChild);
                 }
@@ -289,10 +284,8 @@
             }
         });
 
-        // Initial welcome message from the bot
         addMessage("Hello! I'm your Jharkhand Tourism Assistant. How can I help you explore Jharkhand today?", 'bot');
     </script>
-
 </body>
 
 </html>
