@@ -459,9 +459,9 @@ header .search-bar-container label:hover {
 }
 .contact .row form {
     flex: 1 1 35rem;
-    padding: 2rem;
+    padding: 3rem;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
-    border-radius: .5rem;
+    border-radius: 1rem;
     background: #fff; /* White form background */
 }
 .contact .row form .inputBox {
@@ -479,7 +479,7 @@ header .search-bar-container label:hover {
     text-transform: none;
 }
 .contact .row form textarea {
-    height: 15rem;
+    height: 10rem;
     resize: none;
     width: 100%;
 }

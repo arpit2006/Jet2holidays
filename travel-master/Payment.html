@@ -7,40 +7,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Payment Gateway Form Design using HTML and CSS | Codehal</title>
     <link rel="stylesheet" href="css/check.css">
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1000;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            font-size: 2rem;
+            color: #27ae60;
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 1rem 0;
+        }
+        
+        .modal-content .btn {
+            background: #27ae60;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* The Close Button */
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
-        <form action="">
+        <form id="payment-form" action="">
             <div class="row">
                 <div class="column">
                     <h3 class="title">Billing Address</h3>
                     <div class="input-box">
                         <span>Full Name :</span>
-                        <input type="text" placeholder="Jacob Aiden">
+                        <input type="text" placeholder="Jacob Aiden" required>
                     </div>
                     <div class="input-box">
                         <span>Email :</span>
-                        <input type="email" placeholder="example@example.com">
+                        <input type="email" placeholder="example@example.com" required>
                     </div>
                     <div class="input-box">
                         <span>Address :</span>
-                        <input type="text" placeholder="Room - Street - Locality">
+                        <input type="text" placeholder="Room - Street - Locality" required>
                     </div>
                     <div class="input-box">
                         <span>City :</span>
-                        <input type="text" placeholder="Berlin">
+                        <input type="text" placeholder="Berlin" required>
                     </div>
 
                     <div class="flex">
                         <div class="input-box">
                             <span>State :</span>
-                            <input type="text" placeholder="Germany">
+                            <input type="text" placeholder="Germany" required>
                         </div>
                         <div class="input-box">
                             <span>Zip Code :</span>
-                            <input type="number" placeholder="123 456">
+                            <input type="number" placeholder="123 456" required>
                         </div>
                     </div>
                 </div>
@@ -53,25 +125,25 @@
                     </div>
                     <div class="input-box">
                         <span>Name On Card :</span>
-                        <input type="text" placeholder="Mr. Jacob Aiden">
+                        <input type="text" placeholder="Mr. Jacob Aiden" required>
                     </div>
                     <div class="input-box">
                         <span>Credit Card Number :</span>
-                        <input type="number" placeholder="1111 2222 3333 4444">
+                        <input type="number" placeholder="1111 2222 3333 4444" required>
                     </div>
                     <div class="input-box">
                         <span>Exp. Month :</span>
-                        <input type="text" placeholder="August">
+                        <input type="text" placeholder="August" required>
                     </div>
-                
+
                     <div class="flex">
                         <div class="input-box">
                             <span>Exp. Year :</span>
-                            <input type="number" placeholder="2025">
+                            <input type="number" placeholder="2025" required>
                         </div>
                         <div class="input-box">
                             <span>CVV :</span>
-                            <input type="number" placeholder="123">
+                            <input type="number" placeholder="123" required>
                         </div>
                     </div>
                 </div>
@@ -80,6 +152,42 @@
             <button type="submit" class="btn">Submit</button>
         </form>
     </div>
+
+    <div id="thank-you-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Thank You!</h2>
+            <p>Your booking request has been submitted successfully. We will contact you shortly.</p>
+            <a href="index.html" class="btn">Go to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the form from submitting normally
+
+            if (this.checkValidity()) {
+                const modal = document.getElementById('thank-you-modal');
+                modal.style.display = 'block';
+
+                const closeButton = document.querySelector("#thank-you-modal .close-button");
+
+                // Close the modal when the user clicks the 'x'
+                closeButton.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                // Close the modal when the user clicks anywhere outside of the modal content
+                window.onclick = function(event) {
+                    if (event.target === modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            } else {
+                console.log("Form is not valid.");
+            }
+        });
+    </script>
 
 </body>
 
