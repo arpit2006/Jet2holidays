@@ -263,3 +263,22 @@ swiper.on('slideChangeTransitionEnd', function () {
     bg.style.height = height + 'px';
     bg.style.transform = 'translateX(' + x + 'px ) translateY(' + y + 'px)';
 });
+
+
+document.querySelectorAll('.packages .btn').forEach(button => {
+    button.addEventListener('click', function(event) {
+        // Prevents the page from jumping to the top or to another section
+        event.preventDefault(); 
+
+        // Get the package data from the data attributes
+        const packageName = this.getAttribute('data-package-name');
+        const packagePrice = this.getAttribute('data-package-price');
+
+        // Store the data in localStorage for the checkout page to access
+        localStorage.setItem('selectedPackageName', packageName);
+        localStorage.setItem('selectedPackagePrice', packagePrice);
+
+        // Redirect the user to the checkout page
+        window.location.href = 'checkout.html';
+    });
+});

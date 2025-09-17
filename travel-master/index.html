@@ -11,6 +11,48 @@
     <!-- font awesome link  -->
 
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .book .row .content {
+            flex: 1 1 40rem;
+        }
+    
+        .book .row .content .booking-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+    
+        .book .row .content .booking-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .book .row .content .booking-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+    
+        .book .row .content .booking-card i {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+    
+        .book .row .content .booking-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+    
+        .book .row .content .booking-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+    </style>
     
 </head>
 <body>
@@ -23,12 +65,12 @@
         <nav class="navbar">
             <a href="#home">Home</a>
             <a href="bookings.html">Stays</a>
-            <a href="map.html">Map</a>
-            <a href="travel.html">Travel</a>
+            <!-- <a href="map.html">Map</a> -->
+            <!-- <a href="travel.html">Travel</a> -->
             <a href="#packages">Packages</a>
             <a href="#services">Services</a>
             <a href="#gallery">Gallery</a>
-            <a href="#review">Reviews</a>
+            <!-- <a href="#review">Reviews</a> -->
             <a href="#contact">Contact</a>
         </nav>
 
@@ -73,64 +115,22 @@
             <a href="#" class="btn">discover more</a>
         </div>
 
-        <div class="controls">
+        <!-- <div class="controls">
             <span class="vid-btn active" data-src="images/vid-3.mp4"></span>
-            <span class="vid-btn" data-src="images/vid-5.mp4"></span>
+            <span class="vid-btn" data-src="images/waterfall.mp4"></span>
             <span class="vid-btn" data-src="images/vid-1.mp4"></span>
             <span class="vid-btn" data-src="images/vid-4.mp4"></span>
             <span class="vid-btn" data-src="images/vid-2.mp4"></span>
-        </div>
+        </div> -->
 
         <div class="video-container">
-            <video src="images/vid-3.mp4" id="video-slider" loop autoplay muted></video>
+            <video src="images/vid-1.mp4" id="video-slider" loop autoplay muted></video>
         </div>
     </section>
     
     <!-- home section end -->
-
-    <!-- book section start -->
-
-    <section class="book" id="book">
-        <h1 class="heading">
-            <span>b</span>
-            <span>o</span>
-            <span>o</span>
-            <span>k</span>
-            <span class="space"></span>
-            <span>n</span>
-            <span>o</span>
-            <span>w</span>
-        </h1>
-        <div class="row">
-            <div class="image">
-                <img src="images/book-img.svg" alt="">
-            </div>
-            <form action="">
-                <div class="inputBox">
-                    <h3>where to</h3>
-                    <input type="text" placeholder="place name">
-                </div>
-                <div class="inputBox">
-                    <h3>how many</h3>
-                    <input type="number" placeholder="number of guests">
-                </div>
-                <div class="inputBox">
-                    <h3>arrivals</h3>
-                    <input type="date">
-                </div>
-                <div class="inputBox">
-                    <h3>leaving</h3>
-                    <input type="date">
-                </div>
-                <input type="submit" class="btn" value="book now">
-            </form>
-        </div>
-   </section>
-
-    <!-- book section end -->
-
     <!-- package section start -->
-
+ 
     <section class="packages" id="packages">
         <h1 class="heading">
             <span>P</span>
@@ -144,7 +144,7 @@
         </h1>
         <div class="box-container">
             <div class="box">
-                <img src="https://placehold.co/600x400/27ae60/white?text=Betla+National+Park" alt="Betla National Park">
+                <img src="images/Travel Images/Bettla.png" alt="Betla National Park">
                 <div class="content">
                     <h3><i class="fas fa-map-marker-alt"></i> Betla National Park</h3>
                     <p>Experience the wildlife and ancient forts of Betla. Home to tigers, elephants, and rich biodiversity.</p>
@@ -156,11 +156,11 @@
                         <i class="far fa-star"></i>
                     </div>
                     <div class="price">₹7500 <span>₹9000</span></div>
-                    <a href="#book" class="btn">book now</a>
+                    <a href="checkout.html" class="btn" data-package-name="Betla National Park" data-package-price="7500">book now</a>
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/f39c12/white?text=Parasnath+Hills" alt="Parasnath Hills">
+                <img src="images/Travel Images/prasanatha hills.jpg" alt="Parasnath Hills">
                 <div class="content">
                     <h3><i class="fas fa-map-marker-alt"></i> Parasnath Hills</h3>
                     <p>A sacred pilgrimage site for Jains and the highest peak in the state, offering breathtaking views and serene trails.</p>
@@ -171,12 +171,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <div class="price">₹5500 <span>₹6500</span></div>
-                    <a href="#book" class="btn">book now</a>
+                    <div class="price">₹5500 <span>₹60</span></div>
+                    <a href="checkout.html" class="btn" data-package-name="Parasnath Hills" data-package-price="5500">book now</a>
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/3498db/white?text=Ranchi+Waterfalls" alt="Ranchi Waterfalls">
+                <img src="images/Travel Images/Ranchi.png" alt="Ranchi Waterfalls">
                 <div class="content">
                     <h3><i class="fas fa-map-marker-alt"></i> Ranchi Waterfalls</h3>
                     <p>Explore the capital city's famous waterfalls including Hundru, Jonha, and Dassam Falls, perfect for nature lovers.</p>
@@ -188,11 +188,11 @@
                         <i class="far fa-star"></i>
                     </div>
                     <div class="price">₹4500 <span>₹5500</span></div>
-                    <a href="#book" class="btn">book now</a>
+                    <a href="checkout.html" class="btn" data-package-name="Ranchi Waterfalls" data-package-price="4500">book now</a>
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/e74c3c/white?text=Deoghar" alt="Deoghar">
+                <img src="images/Travel Images/deoghar.png" alt="Deoghar">
                 <div class="content">
                     <h3><i class="fas fa-map-marker-alt"></i> Deoghar</h3>
                     <p>Visit Baidyanath Dham, one of the twelve Jyotirlingas, a major pilgrimage destination for devotees.</p>
@@ -204,11 +204,11 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="price">₹6000 <span>₹7000</span></div>
-                    <a href="#book" class="btn">book now</a>
+                    <a href="checkout.html" class="btn" data-package-name="Deoghar" data-package-price="6000">book now</a>
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/9b59b6/white?text=Patratu+Valley" alt="Patratu Valley">
+                <img src="images/Travel Images/patru.png" alt="Patratu Valley">
                 <div class="content">
                     <h3><i class="fas fa-map-marker-alt"></i> Patratu Valley</h3>
                     <p>A scenic valley with a winding road, offering stunning views and a large reservoir for boating.</p>
@@ -220,11 +220,11 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="price">₹3500 <span>₹4500</span></div>
-                    <a href="#book" class="btn">book now</a>
+                    <a href="checkout.html" class="btn" data-package-name="Patratu Valley" data-package-price="3500">book now</a>
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/f39c12/white?text=Jamshedpur" alt="Jamshedpur">
+                <img src="images/Travel Images/jamshedpur.png" alt="Jamshedpur">
                 <div class="content">
                     <h3><i class="fas fa-map-marker-alt"></i> Jamshedpur</h3>
                     <p>The industrial hub of Jharkhand, featuring beautiful parks, Dimna Lake, and a zoological park.</p>
@@ -236,13 +236,63 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <div class="price">₹4800 <span>₹6000</span></div>
-                    <a href="#book" class="btn">book now</a>
+                    <a href="checkout.html" class="btn" data-package-name="Jamshedpur" data-package-price="4800">book now</a>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- package section end -->
+
+    <!-- book section start -->
+
+   
+        <section class="book" id="book">
+            <h1 class="heading">
+                <span>B</span>
+                <span>o</span>
+                <span>o</span>
+                <span>k</span>
+                <span class="space"></span>
+                <span>Y</span>
+                <span>o</span>
+                <span>u</span>
+                <span>r</span>
+                <span class="space"></span>
+                <span>T</span>
+                <span>r</span>
+                <span>i</span>
+                <span>p</span>
+            </h1>
+            <div class="row">
+                <div class="image">
+                    <img src="images/book-img.svg" alt="Trip booking illustration">
+                </div>
+                <div class="content">
+                    <div class="booking-cards-container">
+                        <div class="booking-card">
+                            <i class="fas fa-route"></i>
+                            <h3>Customized Itineraries</h3>
+                            <p>Tailor your trip to your preferences. Choose your destinations, activities, and duration for a perfect journey.</p>
+                        </div>
+                        <div class="booking-card">
+                            <i class="fas fa-wallet"></i>
+                            <h3>Guaranteed Best Price</h3>
+                            <p>We ensure you get the most affordable rates with no hidden fees. Your adventure awaits, without breaking the bank.</p>
+                        </div>
+                        <div class="booking-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>24/7 Expert Support</h3>
+                            <p>Our dedicated team is always available to assist you, from the moment you book until you return home.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       
+
+    <!-- book section end -->
+
 
     <!-- services section start -->
 
@@ -307,7 +357,7 @@
         </h1>
         <div class="box-container">
             <div class="box">
-                <img src="https://placehold.co/600x400/2c3e50/white?text=Dassam+Falls" alt="Dassam Falls">
+                <img src="images/Travel Images/dassam.png" alt="Dassam Falls">
                 <div class="content">
                     <h3>Dassam Falls</h3>
                     <p>A breathtaking waterfall near Ranchi, where the Subarnarekha River cascades down from a great height.</p>
@@ -315,7 +365,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/f39c12/white?text=Sohrai+Art" alt="Sohrai Art">
+                <img src="images/Travel Images/art.png" alt="Sohrai Art">
                 <div class="content">
                     <h3>Sohrai Art</h3>
                     <p>Explore the unique tribal art of Sohrai, a traditional painting style that celebrates harvest and nature.</p>
@@ -323,7 +373,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/3498db/white?text=Tribal+Dance" alt="Tribal Dance">
+                <img src="images/Travel Images/dance.png" alt="Tribal Dance">
                 <div class="content">
                     <h3>Tribal Culture</h3>
                     <p>Witness the vibrant and rhythmic tribal dances, a core part of Jharkhand's rich cultural heritage.</p>
@@ -331,7 +381,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/27ae60/white?text=Netarhat" alt="Netarhat">
+                <img src="images/Travel Images/hat.png" alt="Netarhat">
                 <div class="content">
                     <h3>Netarhat</h3>
                     <p>Visit the "Queen of Chotanagpur," a picturesque hill station known for its stunning sunrises and sunsets.</p>
@@ -339,7 +389,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/9b59b6/white?text=Tribal+Crafts" alt="Tribal Crafts">
+                <img src="images/Travel Images/art.png" alt="Tribal Crafts">
                 <div class="content">
                     <h3>Local Handicrafts</h3>
                     <p>Discover beautiful Dhokra art, a unique metal casting craft practiced by Jharkhand's tribal communities.</p>
@@ -347,7 +397,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/e74c3c/white?text=Betla+Fort" alt="Betla Fort">
+                <img src="images/Travel Images/fort.png" alt="Betla Fort">
                 <div class="content">
                     <h3>Betla Fort</h3>
                     <p>Explore the remains of the ancient Chero Dynasty fort, located within the Betla National Park.</p>
@@ -355,7 +405,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/16a085/white?text=Jonha+Falls" alt="Jonha Falls">
+                <img src="images/Travel Images/Ranchi.png" alt="Jonha Falls">
                 <div class="content">
                     <h3>Jonha Falls</h3>
                     <p>Also known as Gautamdhara, this hanging valley waterfall is a beautiful sight and a popular picnic spot.</p>
@@ -363,7 +413,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/2c3e50/white?text=Maithon+Dam" alt="Maithon Dam">
+                <img src="images/Travel Images/dam.png" alt="Maithon Dam">
                 <div class="content">
                     <h3>Maithon Dam</h3>
                     <p>A massive dam and a popular tourist spot with a scenic lake, perfect for boating and relaxation.</p>
@@ -371,7 +421,7 @@
                 </div>
             </div>
             <div class="box">
-                <img src="https://placehold.co/600x400/f39c12/white?text=Local+Cuisine" alt="Local Cuisine">
+                <img src="images/Travel Images/banner.png" alt="Local Cuisine">
                 <div class="content">
                     <h3>Local Delicacies</h3>
                     <p>Taste the traditional food of Jharkhand, a unique blend of flavors and ingredients.</p>
@@ -384,7 +434,7 @@
 
     <!-- gallery section end -->
     <!-- review section start -->
-
+<!-- 
     <section class="review" id="review">
         <h1 class="heading">
             <span>R</span>
@@ -454,7 +504,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- review section end -->
 
