@@ -42,7 +42,7 @@ section {
 .hbtn {
   margin-top: 1rem;
   display: inline-block;
-  border: 0.2rem solid #10221b;
+  /* border: 0.2rem solid #10221b; */
   /* background: #10221b;
   color: #fff;*/
   border-radius: 20px;
@@ -52,7 +52,7 @@ section {
   font-size: 1.7rem;
   padding: 1rem 3rem;
   /* filter: blur(1px); */
-  background: rgba(121, 161, 152, 0.447);
+  background: rgb(250, 250, 250, 0.5);
 }
 
 .hbtn:hover {
