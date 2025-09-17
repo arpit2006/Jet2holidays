@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism - Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .sel{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="index.html" class="logo"><span>Jhar</span>khand</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="bookings.html">Stays</a>
+            <a href="map.html">Map</a>
+            <a href="travel.html">Travel</a>
+            <a href="index.html#packages">Packages</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#review">Reviews</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        </header> -->
+
+    <section class="book" id="checkout">
+        <h1 class="heading">
+            <span>c</span>
+            <span>h</span>
+            <span>e</span>
+            <span>c</span>
+            <span>k</span>
+            <span>o</span>
+            <span>u</span>
+            <span>t</span>
+        </h1>
+        <div class="row">
+            <div class="image">
+                <img src="images/book-img.svg" alt="">
+            </div>
+            <form action="Payment.html">
+                <h3>Booking Details</h3>
+                <div class="inputBox">
+                    <span class="sel">Select Package:</span>
+                    <select id="package-dropdown">
+                        <option class="sel" value="" disabled selected>Choose a package</option>
+                        <option value="Betla National Park" data-price="7500">Betla National Park</option>
+                        <option value="Parasnath Hills" data-price="5500">Parasnath Hills</option>
+                        <option value="Ranchi Waterfalls" data-price="4500">Ranchi Waterfalls</option>
+                        <option value="Deoghar" data-price="6000">Deoghar</option>
+                        <option value="Patratu Valley" data-price="3500">Patratu Valley</option>
+                        <option value="Jamshedpur" data-price="4800">Jamshedpur</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <span>Price:</span>
+                    <input type="text" id="package-price" readonly>
+                </div>
+                <div class="inputBox">
+                    <span>Full Name:</span>
+                    <input type="text" placeholder="Enter your full name" required>
+                </div>
+                <div class="inputBox">
+                    <span>Email:</span>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="inputBox">
+                    <span>Number of Guests:</span>
+                    <input type="number" placeholder="How many guests" required>
+                </div>
+                <div class="inputBox">
+                    <span>Arrival Date:</span>
+                    <input type="date" required>
+                </div>
+                <input type="submit" class="btn" value="Proceed to Payment">
+            </form>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const packageDropdown = document.getElementById('package-dropdown');
+            const packagePriceInput = document.getElementById('package-price');
+            
+            // Function to update the price based on the selected option
+            const updatePrice = (selectedValue) => {
+                const selectedOption = packageDropdown.querySelector(`option[value="${selectedValue}"]`);
+                if (selectedOption) {
+                    const price = selectedOption.getAttribute('data-price');
+                    packagePriceInput.value = `₹${price}`;
+                }
+            };
+            
+            // Handle the initial selection from the main page
+            const selectedPackageName = localStorage.getItem('selectedPackageName');
+            if (selectedPackageName) {
+                // Set the dropdown's value to the package selected on the previous page
+                packageDropdown.value = selectedPackageName;
+                updatePrice(selectedPackageName);
+            }
+            
+            // Listen for changes in the dropdown
+            packageDropdown.addEventListener('change', (event) => {
+                const selectedValue = event.target.value;
+                updatePrice(selectedValue);
+            });
+        });
+    </script>
+</body>
+</html>
