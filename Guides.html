@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism - Find a Guide</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1628173458428-f601d36d3f23?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); z-index: -1;
+        }
+
+        .main-content-card {
+            backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .guide-card { transition: all 0.3s ease; }
+        .guide-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-hiking"></i> Jharkhand Tourism </a>
+        <nav class="navbar">
+            <div id="nav-close" class="fas fa-times"></div>
+            <a href="index.html">home</a>
+            <a href="adventure.html">Adventure</a>
+            <a href="map.html">map</a>
+            <a href="blogs.html">blogs</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">about us</a>
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+        </div>
+    </header>
+
+    <div class="search-form">
+        <div id="close-search" class="fas fa-times"></div>
+        <form action="">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+        </form>
+    </div>
+
+    <main class="pt-32 px-6 md:px-12">
+        <div class="main-content-card rounded-3xl w-full p-6 md:p-10 space-y-8">
+            <header class="text-center space-y-2">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-stone-800 tracking-tight flex items-center justify-center gap-3">
+                    <i class="fas fa-user-check text-teal-600"></i>
+                    Find Your Local Guide
+                </h1>
+                <p class="text-sm sm:text-lg text-gray-600">
+                    Explore Jharkhand with our certified and experienced local experts.
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative md:col-span-2">
+                    <input type="text" placeholder="Search by name, city, or specialty (e.g., Trekking)"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="relative">
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150 appearance-none">
+                        <option selected>Filter by City</option>
+                        <option>Ranchi</option>
+                        <option>Jamshedpur</option>
+                        <option>Deoghar</option>
+                        <option>Netarhat</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+                <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Rohan+Kumar" alt="Photo of guide Rohan Kumar">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Rohan Kumar</h3>
+                                    <p class="text-sm text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Ranchi</p>
+                                </div>
+                                <div class="flex items-center text-yellow-400 font-bold bg-yellow-50 px-2 py-1 rounded-md">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <span class="ml-1 text-sm text-yellow-600">4.9</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 space-x-2">
+                                <span class="inline-block bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-1 rounded-full">Wildlife</span>
+                                <span class="inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full">Trekking</span>
+                            </div>
+                            <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                                An expert naturalist specializing in the flora and fauna of Betla National Park and waterfall treks.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <p class="text-lg font-bold text-gray-900">₹4000 <span class="text-sm font-normal text-gray-500">/ day</span></p>
+                            <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Rohan Kumar">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Anjali+Devi" alt="Photo of guide Anjali Devi">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Anjali Devi</h3>
+                                    <p class="text-sm text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Deoghar</p>
+                                </div>
+                                <div class="flex items-center text-yellow-400 font-bold bg-yellow-50 px-2 py-1 rounded-md">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <span class="ml-1 text-sm text-yellow-600">4.8</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 space-x-2">
+                                <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded-full">Culture</span>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-1 rounded-full">Temples</span>
+                            </div>
+                            <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                                Deep knowledge of the history and rituals of Baidyanath Temple and other major religious sites.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <p class="text-lg font-bold text-gray-900">₹3500 <span class="text-sm font-normal text-gray-500">/ day</span></p>
+                            <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Anjali Devi">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Suresh+Munda" alt="Photo of guide Suresh Munda">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Suresh Munda</h3>
+                                    <p class="text-sm text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Jamshedpur</p>
+                                </div>
+                                <div class="flex items-center text-yellow-400 font-bold bg-yellow-50 px-2 py-1 rounded-md">
+                                    <i class="fas fa-star text-sm"></i>
+                                    <span class="ml-1 text-sm text-yellow-600">5.0</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 space-x-2">
+                                <span class="inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-1 rounded-full">Tribal Life</span>
+                                <span class="inline-block bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-1 rounded-full">Cuisine</span>
+                            </div>
+                            <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                                Offers an immersive experience into the daily life, art, and food of the local Munda tribes.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <p class="text-lg font-bold text-gray-900">₹3800 <span class="text-sm font-normal text-gray-500">/ day</span></p>
+                            <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Suresh Munda">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    
+    <script>
+        const searchBtn = document.querySelector('#search-btn');
+        const searchForm = document.querySelector('.search-form');
+        const closeSearch = document.querySelector('#close-search');
+        
+        const menuBtn = document.querySelector('#menu-btn');
+        const navbar = document.querySelector('.navbar');
+        const navClose = document.querySelector('#nav-close');
+
+        searchBtn.addEventListener('click', () => { searchForm.classList.add('active'); });
+        closeSearch.addEventListener('click', () => { searchForm.classList.remove('active'); });
+
+        menuBtn.addEventListener('click', () => { navbar.classList.add('active'); });
+        navClose.addEventListener('click', () => { navbar.classList.remove('active'); });
+
+        document.querySelectorAll('.booking-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const guideName = this.getAttribute('data-guide-name');
+                alert('You have started the booking process for ' + guideName + '! (This is a demo)');
+            });
+        });
+    </script>
+</body>
+</html>
