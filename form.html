@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Tourism | Travel Forum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .post-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar-link.active {
+            background-color: #E6F4EA; /* A light green */
+            color: #2F855A; /* A dark green */
+            font-weight: 600;
+        }
+        .comment-thread {
+            border-left: 2px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-tree text-2xl text-green-600"></i>
+                <h1 class="text-2xl font-bold text-gray-800">Jharkhand Tourism</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-green-600 transition">Home</a>
+                <a href="#" class="text-gray-600 hover:text-green-600 transition">Destinations</a>
+                <a href="#" class="text-gray-600 hover:text-green-600 transition">Adventure</a>
+                <a href="travel-master/index.html" class="text-gray-600 hover:text-green-600 transition">Cuisine</a>
+            </div>
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-12 gap-8">
+
+            <!-- Left Sidebar (for navigation/filters) -->
+            <aside class="col-span-12 md:col-span-3">
+                <div class="bg-white rounded-lg shadow p-4 sticky top-24">
+                    <h2 class="font-bold text-lg mb-4">Categories</h2>
+                    <ul class="space-y-2">
+                        <li><a href="#" data-target="page-popular" class="sidebar-link flex items-center space-x-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-md transition"><i class="fas fa-star text-yellow-500 w-5 text-center"></i><span>Popular Threads</span></a></li>
+                        <li><a href="#" data-target="page-waterfalls" class="sidebar-link flex items-center space-x-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-md transition"><i class="fas fa-water text-blue-500 w-5 text-center"></i><span>Waterfalls</span></a></li>
+                        <li><a href="#" data-target="page-wildlife" class="sidebar-link flex items-center space-x-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-md transition"><i class="fas fa-paw text-orange-500 w-5 text-center"></i><span>Wildlife</span></a></li>
+                        <li><a href="#" data-target="page-cuisine" class="sidebar-link flex items-center space-x-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-md transition"><i class="fas fa-utensils text-red-500 w-5 text-center"></i><span>Local Cuisine</span></a></li>
+                        <li><a href="#" data-target="page-spiritual" class="sidebar-link flex items-center space-x-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-md transition"><i class="fas fa-om text-purple-500 w-5 text-center"></i><span>Spiritual Sites</span></a></li>
+                        <li><a href="#" data-target="page-adventure" class="sidebar-link flex items-center space-x-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-md transition"><i class="fas fa-hiking text-indigo-500 w-5 text-center"></i><span>Trekking & Adventure</span></a></li>
+                    </ul>
+                    <button class="w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg mt-6 hover:bg-green-700 transition">Start New Thread</button>
+                
+                    <hr class="my-6 border-t border-gray-200">
+
+                    <!-- Popular Tags Section -->
+                    <div class="mb-6">
+                        <h3 class="font-bold text-lg mb-4">Popular Tags</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="#" class="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-full hover:bg-green-100 hover:text-green-700 transition">#netarhat</a>
+                            <a href="#" class="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-full hover:bg-green-100 hover:text-green-700 transition">#foodtrail</a>
+                            <a href="#" class="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-full hover:bg-green-100 hover:text-green-700 transition">#adventure</a>
+                            <a href="#" class="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-full hover:bg-green-100 hover:text-green-700 transition">#temples</a>
+                        </div>
+                    </div>
+
+                    <hr class="my-6 border-t border-gray-200">
+
+                    <!-- Top Contributors Section -->
+                    <div>
+                        <h3 class="font-bold text-lg mb-4">Top Contributors</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3">
+                                <img src="https://placehold.co/32x32/D53F8C/FFFFFF?text=FF" alt="Contributor Avatar" class="w-8 h-8 rounded-full">
+                                <div>
+                                    <p class="font-semibold text-sm text-gray-800">@FoodieForLife</p>
+                                    <p class="text-xs text-gray-500">215 Points</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <img src="https://placehold.co/32x32/667EEA/FFFFFF?text=NL" alt="Contributor Avatar" class="w-8 h-8 rounded-full">
+                                <div>
+                                    <p class="font-semibold text-sm text-gray-800">@NatureLover</p>
+                                    <p class="text-xs text-gray-500">128 Points</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Forum Feed -->
+            <div class="col-span-12 md:col-span-9 space-y-6">
+
+                <!-- Page: Popular Threads -->
+                <div id="page-popular" class="forum-page space-y-6">
+                    <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/667EEA/FFFFFF?text=NL" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@NatureLover_Ranchi</p>
+                                    <p class="text-sm text-gray-500">Posted 2 hours ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">Hidden Gems of Jharkhand - Let's Share Our Discoveries!</h2>
+                            <p class="text-gray-600">
+                                We all know about the popular spots like Hundru Falls and Betla National Park, but what about the lesser-known gems? I recently stumbled upon the serene *Netarhat*, known as the 'Queen of Chhotanagpur'. The sunrise and sunset views from Magnolia Point are absolutely magical. What have you found?
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>128</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>3</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>12 Comments</span></button>
+                            </div>
+                        </div>
+                        <!-- Comments Section -->
+                        <div class="bg-gray-50 px-6 py-4 border-t">
+                            <div class="space-y-4">
+                                <!-- Comment 1 -->
+                                <div class="flex space-x-3">
+                                    <img src="https://placehold.co/32x32/ED8936/FFFFFF?text=AS" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@AdventureSeeker_Bokaro <span class="text-gray-400 font-normal text-xs">· 1h ago</span></p>
+                                        <p class="text-sm">Totally agree on Netarhat! Also, check out the *Canary Hills* in Hazaribagh. It's a short trek up, and the view from the watchtower is amazing. Not many tourists know about it.</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                                <!-- Reply to Comment 1 -->
+                                <div class="flex space-x-3 ml-6 pl-4 comment-thread">
+                                    <img src="https://placehold.co/32x32/667EEA/FFFFFF?text=NL" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@NatureLover_Ranchi <span class="text-gray-400 font-normal text-xs">· 50m ago</span></p>
+                                        <p class="text-sm">Oh, great suggestion! I've heard of Canary Hills but never been. Is it suitable for beginners?</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                                <!-- Comment 2 -->
+                                <div class="flex space-x-3">
+                                    <img src="https://placehold.co/32x32/4A5568/FFFFFF?text=HB" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@HistoryBuff_Hazaribagh <span class="text-gray-400 font-normal text-xs">· 45m ago</span></p>
+                                        <p class="text-sm">For a slice of history, visit *McCluskieganj*. It's this strange, beautiful, and slightly haunting Anglo-Indian town. The colonial-era bungalows are fascinating.</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                     <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/3182CE/FFFFFF?text=TR" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@TravelRookie</p>
+                                    <p class="text-sm text-gray-500">Posted 3 days ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">Ranchi vs Jamshedpur: Which city for a weekend trip?</h2>
+                            <p class="text-gray-600">
+                               Planning a quick weekend getaway and can't decide between Ranchi and Jamshedpur. I've heard Ranchi is the "City of Waterfalls" and Jamshedpur is a well-planned "Steel City". What do you guys recommend for a first-timer interested in a mix of nature and city life?
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>72</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>5</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>15 Comments</span></button>
+                            </div>
+                        </div>
+                         <!-- Comments Section -->
+                        <div class="bg-gray-50 px-6 py-4 border-t">
+                            <div class="space-y-4">
+                                <!-- Comment 1 -->
+                                <div class="flex space-x-3">
+                                    <img src="https://placehold.co/32x32/E53E3E/FFFFFF?text=JS" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@JSR_Resident <span class="text-gray-400 font-normal text-xs">· 2d ago</span></p>
+                                        <p class="text-sm">Jamshedpur, no doubt. It's cleaner, greener, and Jubilee Park is stunning. Plus, you have Dalma Hills right there. Ranchi is great, but a bit more chaotic.</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                                <!-- Comment 2 -->
+                                <div class="flex space-x-3">
+                                    <img src="https://placehold.co/32x32/667EEA/FFFFFF?text=NL" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@NatureLover_Ranchi <span class="text-gray-400 font-normal text-xs">· 2d ago</span></p>
+                                        <p class="text-sm">Gotta defend my city! If you want nature, Ranchi is the answer. You can visit a different waterfall every day. Jamshedpur is nice, but it's an industrial town at heart.</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                                <!-- Reply to Comment 2 -->
+                                <div class="flex space-x-3 ml-6 pl-4 comment-thread">
+                                    <img src="https://placehold.co/32x32/3182CE/FFFFFF?text=TR" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@TravelRookie <span class="text-gray-400 font-normal text-xs">· 1d ago</span></p>
+                                        <p class="text-sm">Thanks for the perspectives! This is tough. Maybe I'll just have to plan two trips haha.</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Page: Waterfalls -->
+                <div id="page-waterfalls" class="forum-page space-y-6 hidden">
+                     <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                             <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/4299E1/FFFFFF?text=WC" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@WaterfallChaser</p>
+                                    <p class="text-sm text-gray-500">Posted 8 hours ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">My Trip to the Majestic Hundru Falls!</h2>
+                            <img src="https://placehold.co/800x400/3182CE/FFFFFF?text=Hundru+Falls" alt="Hundru Falls" class="rounded-lg my-4 w-full h-auto object-cover">
+                            <p class="text-gray-600">
+                                Just visited Hundru Falls and was blown away by the sheer power of the water. It's the highest waterfall in the state and a must-see. The 750 steps down are a bit of a workout, but the view from the bottom is totally worth it. Pro-tip: Go after the monsoon season for the best flow!
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>88</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>2</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>9 Comments</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                             <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/667EEA/FFFFFF?text=NL" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@NatureLover_Ranchi</p>
+                                    <p class="text-sm text-gray-500">Posted 4 days ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">Dassam vs Jonha Falls - Which one is better for families?</h2>
+                            <p class="text-gray-600">
+                                Thinking of taking my family for a picnic. We have kids. Which waterfall is more accessible and family-friendly, Dassam or Jonha? Looking for a place with safe viewing areas and fewer stairs if possible.
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>45</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>0</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>6 Comments</span></button>
+                            </div>
+                        </div>
+                         <!-- Comments Section -->
+                        <div class="bg-gray-50 px-6 py-4 border-t">
+                             <div class="space-y-4">
+                                <!-- Comment 1 -->
+                                <div class="flex space-x-3">
+                                    <img src="https://placehold.co/32x32/4299E1/FFFFFF?text=WC" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@WaterfallChaser <span class="text-gray-400 font-normal text-xs">· 3d ago</span></p>
+                                        <p class="text-sm">Definitely Jonha Falls for families. The stairs are much more manageable, and there's a beautiful monastery at the top. Dassam is more rugged and powerful, better for adults or adventurous types.</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Page: Wildlife -->
+                <div id="page-wildlife" class="forum-page space-y-6 hidden">
+                     <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                             <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/E53E3E/FFFFFF?text=JE" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@JungleExplorer</p>
+                                    <p class="text-sm text-gray-500">Posted yesterday</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">Safari at Betla National Park - Spotted a Tiger!</h2>
+                            <p class="text-gray-600">
+                                Incredible experience at Betla National Park this weekend. We were lucky enough to spot a tiger from a distance! The park is also home to elephants, leopards, and countless deer. The forest is so dense and beautiful. Highly recommend taking an early morning jeep safari.
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>150</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>4</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>22 Comments</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                             <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/38B2AC/FFFFFF?text=BW" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@BirdWatcher_Ghatsila</p>
+                                    <p class="text-sm text-gray-500">Posted 2 days ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">Bird watching spots near Dalma Wildlife Sanctuary?</h2>
+                            <p class="text-gray-600">
+                                I'm heading to Dalma next month. Besides the elephants, I'm really keen on spotting some rare birds. Any bird watchers here know of specific trails or areas around the sanctuary that are good for birding? Looking for Hornbills and Orioles.
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>35</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>0</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>5 Comments</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Page: Local Cuisine -->
+                <div id="page-cuisine" class="forum-page space-y-6 hidden">
+                     <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/D53F8C/FFFFFF?text=FF" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@FoodieForLife_Dhanbad</p>
+                                    <p class="text-sm text-gray-500">Posted 1 day ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">The Ultimate Jharkhand Food Trail: More Than Just Litti Chokha!</h2>
+                            <p class="text-gray-600">
+                               I'm on a mission to taste the real Jharkhand. So far, my top finds are *Dhuska* (a savory fried pancake) with ghugni, and the wild mushroom curry called *Rugra*. The flavors are so unique and earthy. What other local delicacies should I not miss?
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>98</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>1</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>7 Comments</span></button>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t">
+                            <div class="space-y-4">
+                                <!-- Comment 1 -->
+                                <div class="flex space-x-3">
+                                    <img src="https://placehold.co/32x32/667EEA/FFFFFF?text=NL" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@NatureLover_Ranchi <span class="text-gray-400 font-normal text-xs">· 22h ago</span></p>
+                                        <p class="text-sm">You have to try *Chilka Roti* with mutton curry! It's a thin pancake made of rice flour. Also, look for *Pitha*, they are sweet or savory dumplings. Delicious!</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                                 <!-- Reply to Comment 1 -->
+                                <div class="flex space-x-3 ml-6 pl-4 comment-thread">
+                                    <img src="https://placehold.co/32x32/D53F8C/FFFFFF?text=FF" alt="Commenter Avatar" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">@FoodieForLife_Dhanbad <span class="text-gray-400 font-normal text-xs">· 15h ago</span></p>
+                                        <p class="text-sm">Yesss! Had Chilka Roti today, it was amazing. Pitha is next on my list. Thanks!</p>
+                                        <button class="text-xs font-semibold text-gray-500 hover:text-gray-800 mt-1">Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Page: Spiritual Sites -->
+                <div id="page-spiritual" class="forum-page space-y-6 hidden">
+                     <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                             <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/805AD5/FFFFFF?text=PT" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@PilgrimTraveler</p>
+                                    <p class="text-sm text-gray-500">Posted 3 days ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">My Spiritual Journey to Baidyanath Dham, Deoghar</h2>
+                            <p class="text-gray-600">
+                                Visited the Baidyanath Temple in Deoghar, one of the twelve Jyotirlingas. The spiritual energy of the place is palpable, especially during the morning aarti. It's a deeply moving experience for anyone on a spiritual path. The entire complex is vast and has many smaller temples to explore.
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>112</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>3</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>14 Comments</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                             <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/4A5568/FFFFFF?text=HB" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@HistoryBuff_Hazaribagh</p>
+                                    <p class="text-sm text-gray-500">Posted 6 days ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">The climb to Parasnath Hills (Shikharji)</h2>
+                            <p class="text-gray-600">
+                               Completed the pilgrimage to Shikharji. It's a challenging 27 km trek (up and down), but the sense of peace at the top is unparalleled. It's the most important Jain tirtha. My advice: start very early in the morning (around 3 AM) to avoid the heat. 
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>81</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>1</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>10 Comments</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Page: Trekking & Adventure -->
+                <div id="page-adventure" class="forum-page space-y-6 hidden">
+                    <article class="post-card bg-white rounded-lg shadow overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://placehold.co/40x40/ED8936/FFFFFF?text=AS" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-gray-800">@AdventureSeeker_Bokaro</p>
+                                    <p class="text-sm text-gray-500">Posted 5 hours ago</p>
+                                </div>
+                            </div>
+                            <h2 class="text-xl font-bold mb-3 text-gray-900">Seeking Thrills in Jharkhand! My Paragliding Experience.</h2>
+                            <img src="https://placehold.co/800x400/38A169/FFFFFF?text=Paragliding+View" alt="Paragliding" class="rounded-lg my-4 w-full h-auto object-cover">
+                            <p class="text-gray-600">
+                               Just got back from a paragliding session in Morhabadi, Ranchi, and it was insane! The feeling of soaring above the landscape is indescribable. For those looking for a different kind of thrill, I've heard rock climbing at *Tagore Hill* is also fantastic. Any other adrenaline junkies here?
+                            </p>
+                             <!-- Post Actions -->
+                            <div class="flex items-center justify-between text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                                <div class="flex items-center space-x-4">
+                                    <button class="flex items-center space-x-1 hover:text-green-600 transition"><i class="fas fa-arrow-up"></i><span>95</span></button>
+                                    <button class="flex items-center space-x-1 hover:text-red-600 transition"><i class="fas fa-arrow-down"></i><span>2</span></button>
+                                </div>
+                                <button class="flex items-center space-x-1 hover:text-blue-600 transition"><i class="fas fa-comment-alt"></i><span>11 Comments</span></button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-8 border-t">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Jharkhand Tourism. All Rights Reserved.</p>
+            <p class="text-sm mt-1">Discover the unseen beauty of Jharkhand with our community.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Logic for upvote/downvote buttons
+            const voteButtons = document.querySelectorAll('.fa-arrow-up, .fa-arrow-down');
+            voteButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // This is a visual toggle, a real implementation would need a backend
+                    const isUpvote = button.classList.contains('fa-arrow-up');
+                    const container = button.parentElement;
+                    const upvoteBtn = container.querySelector('.fa-arrow-up');
+                    const downvoteBtn = container.querySelector('.fa-arrow-down');
+
+                    if(button.classList.contains('text-green-600') || button.classList.contains('text-red-600')) {
+                        button.classList.remove('text-green-600', 'text-red-600');
+                    } else {
+                        if(isUpvote) {
+                           upvoteBtn.classList.add('text-green-600');
+                           downvoteBtn.classList.remove('text-red-600');
+                        } else {
+                           downvoteBtn.classList.add('text-red-600');
+                           upvoteBtn.classList.remove('text-green-600');
+                        }
+                    }
+                });
+            });
+
+            // Logic for page navigation
+            const categoryLinks = document.querySelectorAll('.sidebar-link');
+            const pages = document.querySelectorAll('.forum-page');
+
+            function showPage(targetId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.add('hidden');
+                });
+
+                // Show the target page
+                const targetPage = document.getElementById(targetId);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                }
+
+                // Update active link style
+                categoryLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-target') === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    showPage(targetId);
+                    window.scrollTo(0, 0); // Scroll to top on page change
+                });
+            });
+
+            // Set the initial active state for "Popular Threads" on page load
+            showPage('page-popular');
+        });
+    </script>
+
+</body>
+</html>
