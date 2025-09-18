@@ -41,7 +41,7 @@
     </style>
 </head>
 
-<body class="min-h-screen">
+<body class="min-h-screen flex flex-col">
 
     <header class="header">
         <a href="#" class="logo"> <i class="fas fa-hiking"></i> Jharkhand Tourism </a>
@@ -67,14 +67,14 @@
         </form>
     </div>
 
-    <main class="pt-32 px-6 md:px-12">
-        <div class="main-content-card rounded-3xl w-full p-6 md:p-10 space-y-8">
+    <main class="pt-32 px-6 md:px-12 flex">
+        <div class="main-content-card rounded-3xl w-full p-6 md:p-10 space-y-8 flex flex-col">
             <header class="text-center space-y-2">
                 <h1 class="text-3xl sm:text-4xl font-extrabold text-stone-800 tracking-tight flex items-center justify-center gap-3">
                     <i class="fas fa-user-check text-teal-600"></i>
                     Find Your Local Guide
                 </h1>
-                <p class="text-sm sm:text-lg text-gray-600">
+                <p class="text-base sm:text-lg text-gray-600">
                     Explore Jharkhand with our certified and experienced local experts.
                 </p>
             </header>
@@ -82,13 +82,13 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="relative md:col-span-2">
                     <input type="text" placeholder="Search by name, city, or specialty (e.g., Trekking)"
-                           class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150">
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150 text-base">
                     <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
                         <i class="fas fa-search text-gray-400"></i>
                     </div>
                 </div>
                 <div class="relative">
-                    <select class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150 appearance-none">
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition duration-150 appearance-none text-base">
                         <option selected>Filter by City</option>
                         <option>Ranchi</option>
                         <option>Jamshedpur</option>
@@ -108,118 +108,230 @@
                         <div class="flex-grow">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-900">Rohan Kumar</h3>
-                                    <p class="text-sm text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Ranchi</p>
+                                    <h3 class="text-2xl font-bold text-gray-900">Rohan Kumar</h3>
+                                    <p class="text-base text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Ranchi</p>
                                 </div>
-                                <div class="flex items-center text-yellow-400 font-bold bg-yellow-50 px-2 py-1 rounded-md">
-                                    <i class="fas fa-star text-sm"></i>
-                                    <span class="ml-1 text-sm text-yellow-600">4.9</span>
+                                <div class="flex items-center text-yellow-500 font-bold bg-yellow-50 px-3 py-1 rounded-md">
+                                    <i class="fas fa-star text-base"></i>
+                                    <span class="ml-1 text-base text-yellow-700">4.9</span>
                                 </div>
                             </div>
-                            <div class="mt-4 space-x-2">
-                                <span class="inline-block bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-1 rounded-full">Wildlife</span>
-                                <span class="inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full">Trekking</span>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="inline-block bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full">Wildlife</span>
+                                <span class="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Trekking</span>
                             </div>
-                            <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                            <p class="text-gray-700 mt-4 text-base leading-relaxed">
                                 An expert naturalist specializing in the flora and fauna of Betla National Park and waterfall treks.
                             </p>
                         </div>
                         <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
-                            <p class="text-lg font-bold text-gray-900">₹4000 <span class="text-sm font-normal text-gray-500">/ day</span></p>
+                            <p class="text-xl font-bold text-gray-900">₹4000 <span class="text-base font-normal text-gray-500">/ day</span></p>
                             <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Rohan Kumar">
                                 Book Now
                             </button>
                         </div>
                     </div>
                 </div>
-
                 <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
                     <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Anjali+Devi" alt="Photo of guide Anjali Devi">
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex-grow">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-900">Anjali Devi</h3>
-                                    <p class="text-sm text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Deoghar</p>
+                                    <h3 class="text-2xl font-bold text-gray-900">Anjali Devi</h3>
+                                    <p class="text-base text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Deoghar</p>
                                 </div>
-                                <div class="flex items-center text-yellow-400 font-bold bg-yellow-50 px-2 py-1 rounded-md">
-                                    <i class="fas fa-star text-sm"></i>
-                                    <span class="ml-1 text-sm text-yellow-600">4.8</span>
+                                <div class="flex items-center text-yellow-500 font-bold bg-yellow-50 px-3 py-1 rounded-md">
+                                    <i class="fas fa-star text-base"></i>
+                                    <span class="ml-1 text-base text-yellow-700">4.8</span>
                                 </div>
                             </div>
-                            <div class="mt-4 space-x-2">
-                                <span class="inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-1 rounded-full">Culture</span>
-                                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-1 rounded-full">Temples</span>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="inline-block bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Culture</span>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Temples</span>
                             </div>
-                            <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                            <p class="text-gray-700 mt-4 text-base leading-relaxed">
                                 Deep knowledge of the history and rituals of Baidyanath Temple and other major religious sites.
                             </p>
                         </div>
                         <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
-                            <p class="text-lg font-bold text-gray-900">₹3500 <span class="text-sm font-normal text-gray-500">/ day</span></p>
+                            <p class="text-xl font-bold text-gray-900">₹3500 <span class="text-base font-normal text-gray-500">/ day</span></p>
                             <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Anjali Devi">
                                 Book Now
                             </button>
                         </div>
                     </div>
                 </div>
-
                 <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
                     <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Suresh+Munda" alt="Photo of guide Suresh Munda">
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex-grow">
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-900">Suresh Munda</h3>
-                                    <p class="text-sm text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Jamshedpur</p>
+                                    <h3 class="text-2xl font-bold text-gray-900">Suresh Munda</h3>
+                                    <p class="text-base text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Jamshedpur</p>
                                 </div>
-                                <div class="flex items-center text-yellow-400 font-bold bg-yellow-50 px-2 py-1 rounded-md">
-                                    <i class="fas fa-star text-sm"></i>
-                                    <span class="ml-1 text-sm text-yellow-600">5.0</span>
+                                <div class="flex items-center text-yellow-500 font-bold bg-yellow-50 px-3 py-1 rounded-md">
+                                    <i class="fas fa-star text-base"></i>
+                                    <span class="ml-1 text-base text-yellow-700">5.0</span>
                                 </div>
                             </div>
-                            <div class="mt-4 space-x-2">
-                                <span class="inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-1 rounded-full">Tribal Life</span>
-                                <span class="inline-block bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-1 rounded-full">Cuisine</span>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="inline-block bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Tribal Life</span>
+                                <span class="inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Cuisine</span>
                             </div>
-                            <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                            <p class="text-gray-700 mt-4 text-base leading-relaxed">
                                 Offers an immersive experience into the daily life, art, and food of the local Munda tribes.
                             </p>
                         </div>
                         <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
-                            <p class="text-lg font-bold text-gray-900">₹3800 <span class="text-sm font-normal text-gray-500">/ day</span></p>
+                            <p class="text-xl font-bold text-gray-900">₹3800 <span class="text-base font-normal text-gray-500">/ day</span></p>
                             <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Suresh Munda">
                                 Book Now
                             </button>
                         </div>
                     </div>
                 </div>
+                <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Vikram+Singh" alt="Photo of guide Vikram Singh">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900">Vikram Singh</h3>
+                                    <p class="text-base text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Netarhat</p>
+                                </div>
+                                <div class="flex items-center text-yellow-500 font-bold bg-yellow-50 px-3 py-1 rounded-md">
+                                    <i class="fas fa-star text-base"></i>
+                                    <span class="ml-1 text-base text-yellow-700">4.7</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Scenic Views</span>
+                                <span class="inline-block bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">Photography</span>
+                            </div>
+                            <p class="text-gray-700 mt-4 text-base leading-relaxed">
+                                Specializes in finding the best spots for sunrise and sunset views in the 'Queen of Chotanagpur'.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <p class="text-xl font-bold text-gray-900">₹4200 <span class="text-base font-normal text-gray-500">/ day</span></p>
+                            <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Vikram Singh">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Meena+Kumari" alt="Photo of guide Meena Kumari">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900">Meena Kumari</h3>
+                                    <p class="text-base text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Hazaribagh</p>
+                                </div>
+                                <div class="flex items-center text-yellow-500 font-bold bg-yellow-50 px-3 py-1 rounded-md">
+                                    <i class="fas fa-star text-base"></i>
+                                    <span class="ml-1 text-base text-yellow-700">4.9</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Archaeology</span>
+                                <span class="inline-block bg-pink-100 text-pink-800 text-sm font-medium px-3 py-1 rounded-full">Rock Art</span>
+                            </div>
+                            <p class="text-gray-700 mt-4 text-base leading-relaxed">
+                                An archaeology enthusiast with deep knowledge of the prehistoric rock art sites in and around Hazaribagh.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <p class="text-xl font-bold text-gray-900">₹3700 <span class="text-base font-normal text-gray-500">/ day</span></p>
+                            <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Meena Kumari">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-card flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img class="h-56 w-full object-cover" src="https://via.placeholder.com/400x300.png?text=Photo+Of+Arjun+Oraon" alt="Photo of guide Arjun Oraon">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900">Arjun Oraon</h3>
+                                    <p class="text-base text-gray-500 mt-1"><i class="fas fa-map-marker-alt fa-fw mr-1 text-gray-400"></i>Palamu</p>
+                                </div>
+                                <div class="flex items-center text-yellow-500 font-bold bg-yellow-50 px-3 py-1 rounded-md">
+                                    <i class="fas fa-star text-base"></i>
+                                    <span class="ml-1 text-base text-yellow-700">4.6</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="inline-block bg-stone-100 text-stone-800 text-sm font-medium px-3 py-1 rounded-full">Fort Exploration</span>
+                                <span class="inline-block bg-lime-100 text-lime-800 text-sm font-medium px-3 py-1 rounded-full">Local History</span>
+                            </div>
+                            <p class="text-gray-700 mt-4 text-base leading-relaxed">
+                                Expert in the history of the Chero dynasty and provides detailed tours of the Palamu Forts.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                            <p class="text-xl font-bold text-gray-900">₹3900 <span class="text-base font-normal text-gray-500">/ day</span></p>
+                            <button class="booking-btn bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-5 rounded-lg transition-transform hover:scale-105" data-guide-name="Arjun Oraon">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </section>
-
         </div>
     </main>
     
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html">home</a>
+                <a href="adventure.html">adventure</a>
+                <a href="map.html">map</a>
+                <a href="blogs.html">blog</a>
+                <a href="products.html">products</a>
+                <a href="about.php">about</a>
+            </div>
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="acc.html">My Account</a>
+                <a href="https://forms.gle/DAtRhytejz8Dm49V9">Ask Questions</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="https://forms.gle/2NBV2MnbWB1niZ7T7">Review</a>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 XXXXXXXX </a>
+                <a href="#"> <i class="fas fa-phone"></i> +91 XXXXXXXX </a>
+                <a href="#"> <i class="fas fa-envelope"></i> jharkhandtourism@gmail.com </a>
+                <a href="#"> <i class="fas fa-map"></i> Jharkhand, India</a>
+            </div>
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="https://www.facebook.com/VisitJharkhand/" target="_blank"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="https://x.com/VisitJharkhand/" target="_blank"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="https://www.instagram.com/jharkhandtourism/?hl=en" target="_blank"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="https://in.linkedin.com/in/jharkhand-tourism-8741721bb" target="_blank"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="https://www.pinterest.com/ideas/jharkhand-tourist-places/949317834080/" target="_blank"><i class="fa fa-pinterest"></i> pinterest </a>
+            </div>
+        </div>
+        <div class="credit"> Made with 🤍 in<span> VIT-AP</span> <br> Copyright ©️ 2025- all rights reserved! </div>
+        <div class="credit " id="credi"> Made with 🤍 by <a href="https://panav.xyz/"><b>Panav,</b></a> <a href="#"><b>Manas, </b></a> <a href="https://arpitshirbhate.vercel.app/"><b>Arpit, </b></a> <a href="#"><b>Tuhin, </b></a> <a href="#"><b>Utplakshi, </b></a> <a href="#"><b>Reeshith.</b></a></div>
+    </section>
+    
     <script>
-        const searchBtn = document.querySelector('#search-btn');
-        const searchForm = document.querySelector('.search-form');
-        const closeSearch = document.querySelector('#close-search');
-        
-        const menuBtn = document.querySelector('#menu-btn');
-        const navbar = document.querySelector('.navbar');
-        const navClose = document.querySelector('#nav-close');
-
+        const searchBtn = document.querySelector('#search-btn'),searchForm = document.querySelector('.search-form'),closeSearch = document.querySelector('#close-search'),menuBtn = document.querySelector('#menu-btn'),navbar = document.querySelector('.navbar'),navClose = document.querySelector('#nav-close');
         searchBtn.addEventListener('click', () => { searchForm.classList.add('active'); });
         closeSearch.addEventListener('click', () => { searchForm.classList.remove('active'); });
-
         menuBtn.addEventListener('click', () => { navbar.classList.add('active'); });
         navClose.addEventListener('click', () => { navbar.classList.remove('active'); });
-
-        document.querySelectorAll('.booking-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const guideName = this.getAttribute('data-guide-name');
-                alert('You have started the booking process for ' + guideName + '! (This is a demo)');
-            });
-        });
+        document.querySelectorAll('.booking-btn').forEach(button => { button.addEventListener('click', function() { const guideName = this.getAttribute('data-guide-name'); alert('You have started the booking process for ' + guideName + '! (This is a demo)'); }); });
     </script>
 </body>
 </html>
